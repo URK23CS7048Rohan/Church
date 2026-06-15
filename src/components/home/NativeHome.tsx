@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import { GenerativeArtScene } from "@/components/ui/GenerativeArtScene";
 
 /* ─────────────────────────────────────────────
    CUSTOM SVG ICONS
@@ -343,9 +344,8 @@ function HeroParallax() {
 
   return (
     <div className="relative overflow-hidden rounded-b-[2.5rem]" style={{ height:"72vw", maxHeight:"340px" }}>
-      <motion.div style={{ y, scale }} className="absolute inset-0">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/church-photos/main-prayer.jpeg" alt="Hero" className="w-full h-full object-cover"/>
+      <motion.div style={{ y, scale }} className="absolute inset-0 bg-gradient-to-br from-[#080812] via-[#0d0d21] to-[#080812]">
+        <GenerativeArtScene />
         <div className="absolute inset-0" style={{ background:"linear-gradient(to top,#080812 0%,rgba(8,8,18,0.55) 50%,rgba(8,8,18,0.2) 100%)" }}/>
       </motion.div>
       <motion.div style={{ opacity }} className="absolute inset-0 flex flex-col justify-end px-5 pb-6">
