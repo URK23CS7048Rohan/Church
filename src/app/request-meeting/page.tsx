@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
+import { NativePageWrapper } from "@/components/layout/NativePageWrapper";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Button } from "@/components/ui/Button";
@@ -79,10 +77,8 @@ export default function RequestMeetingPage() {
   };
 
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen pt-32 pb-20 lg:pb-0 px-4">
-        <div className="max-w-2xl mx-auto">
+    <NativePageWrapper title="Book Meeting" accentColor="#C4B5FD" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0 px-4">
+      <div className="max-w-2xl mx-auto">
           <SectionHeader
             eyebrow={t("meeting_eyebrow")}
             title={t("meeting_title")}
@@ -225,9 +221,6 @@ export default function RequestMeetingPage() {
             )}
           </div>
         </div>
-      </main>
-      <Footer />
-      <MobileBottomNav />
-    </>
+    </NativePageWrapper>
   );
 }

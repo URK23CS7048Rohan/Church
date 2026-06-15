@@ -2219,9 +2219,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, [language, isRTL]);
 
   useEffect(() => {
-    // Apply native dark theme class if running inside a native shell
+    // Apply native dark theme class if running inside a native shell or simulated native mode
     import("@capacitor/core").then(({ Capacitor }) => {
-      if (Capacitor.isNativePlatform()) {
+      const isCapacitorNative = Capacitor.isNativePlatform();
+      const isQueryNative = typeof window !== 'undefined' && 
+        (new URLSearchParams(window.location.search).get("platform") === "native" || 
+         new URLSearchParams(window.location.search).get("native") === "true");
+      
+      if (isCapacitorNative || isQueryNative) {
         document.documentElement.classList.add("native-dark-theme");
       }
     });

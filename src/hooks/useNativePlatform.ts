@@ -7,7 +7,12 @@ export function useNativePlatform() {
   const [isNative, setIsNative] = useState(false);
 
   useEffect(() => {
-    setIsNative(Capacitor.isNativePlatform());
+    const isCapacitorNative = Capacitor.isNativePlatform();
+    const isQueryNative = typeof window !== 'undefined' && 
+      (new URLSearchParams(window.location.search).get("platform") === "native" || 
+       new URLSearchParams(window.location.search).get("native") === "true");
+    
+    setIsNative(isCapacitorNative || isQueryNative);
   }, []);
 
   return isNative;

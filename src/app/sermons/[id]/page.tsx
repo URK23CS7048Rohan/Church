@@ -1,6 +1,6 @@
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
+"use client";
+
+import { NativePageWrapper } from "@/components/layout/NativePageWrapper";
 import { YouTubeEmbed } from "@/components/live/YouTubeEmbed";
 import { SermonNotes } from "@/components/live/SermonNotes";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
@@ -35,10 +35,8 @@ export default function SermonDetailPage({ params }: { params: { id: string } })
   const videoId = getYouTubeVideoId(sermon.youtube_url);
 
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen pt-16 pb-20 lg:pb-0">
-        <div className="max-w-6xl mx-auto px-4 py-8">
+    <NativePageWrapper title="Sermons" accentColor="#C9A84C" mainClassName="min-h-screen pt-16 pb-20 lg:pb-0">
+      <div className="max-w-6xl mx-auto px-4 py-8">
           {/* Back link */}
           <RevealOnScroll>
             <Link href="/sermons" className="inline-flex items-center gap-1.5 font-body text-sm text-fog hover:text-sacred transition-colors mb-6">
@@ -144,9 +142,6 @@ export default function SermonDetailPage({ params }: { params: { id: string } })
             </div>
           </div>
         </div>
-      </main>
-      <Footer />
-      <MobileBottomNav />
-    </>
+    </NativePageWrapper>
   );
 }
