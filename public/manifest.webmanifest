@@ -1,4 +1,7 @@
 {
+  "name": "AGAPE",
+  "short_name": "AGAPE",
+  "start_url": "/",
   "background_color": "#ffffff",
   "icons": [
     {
