@@ -81,9 +81,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${playfair.variable} ${dmSans.variable} ${spaceGrotesk.variable} ${cinzel.variable} h-full`}
+      className={`${cormorant.variable} ${playfair.variable} ${dmSans.variable} ${spaceGrotesk.variable} ${cinzel.variable} h-full overflow-x-hidden`}
     >
-      <body className="min-h-full bg-midnight text-ivory antialiased font-body">
+      <body className="min-h-full bg-midnight text-ivory antialiased font-body overflow-x-hidden">
         <LanguageProvider>
           <LenisProvider>
             {children}

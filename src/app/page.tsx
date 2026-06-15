@@ -15,9 +15,19 @@ import { EventsTeaser } from "@/components/home/EventsTeaser";
 import { GoldDivider } from "@/components/ui/GoldDivider";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { useNativePlatform } from "@/hooks/useNativePlatform";
+import { NativeHome } from "@/components/home/NativeHome";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 export default function HomePage() {
+  const isNative = useNativePlatform();
+  if (isNative) {
+    return <NativeHome />;
+  }
+  return <WebHome />;
+}
+
+function WebHome() {
   const { t } = useLanguage();
 
   const stats = [

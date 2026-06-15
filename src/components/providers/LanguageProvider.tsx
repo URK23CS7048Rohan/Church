@@ -2218,6 +2218,15 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
   }, [language, isRTL]);
 
+  useEffect(() => {
+    // Apply native dark theme class if running inside a native shell
+    import("@capacitor/core").then(({ Capacitor }) => {
+      if (Capacitor.isNativePlatform()) {
+        document.documentElement.classList.add("native-dark-theme");
+      }
+    });
+  }, []);
+
   const t = (key: string): string => {
     return translations[language]?.[key] ?? translations["en"]?.[key] ?? key;
   };

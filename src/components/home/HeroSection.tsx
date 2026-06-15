@@ -72,7 +72,7 @@ export function HeroSection({ isLive = false }: HeroSectionProps) {
       ref={containerRef}
       className="relative min-h-[100svh] pt-20 flex flex-col items-center justify-center overflow-hidden bg-[#0F1E15] text-[#FAF8F5]"
       style={{
-        backgroundImage: "linear-gradient(rgba(15, 30, 21, 0.78), rgba(15, 30, 21, 0.88)), url('https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&w=1920&q=80')",
+        backgroundImage: "linear-gradient(rgba(15, 30, 21, 0.78), rgba(15, 30, 21, 0.88)), url('/church-photos/church-photo-2.jpeg')",
         backgroundSize: "cover",
         backgroundPosition: "center"
       }}

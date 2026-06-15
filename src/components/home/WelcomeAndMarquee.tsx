@@ -45,7 +45,7 @@ export function WelcomeAndMarquee() {
       <div 
         className="w-full py-24 px-6 relative flex flex-col items-center justify-center text-center overflow-hidden bg-[#1A2E20]"
         style={{
-          backgroundImage: "linear-gradient(rgba(26, 46, 32, 0.75), rgba(26, 46, 32, 0.85)), url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80')",
+          backgroundImage: "linear-gradient(rgba(26, 46, 32, 0.75), rgba(26, 46, 32, 0.85)), url('/church-photos/church-photo-6.jpeg')",
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}

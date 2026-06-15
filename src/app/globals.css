@@ -420,3 +420,95 @@ motion-bar {
   transition: width 1s ease-out;
 }
 
+/* ============================================================
+   NATIVE APP DARK THEME OVERRIDES
+   ============================================================ */
+.native-dark-theme {
+  --color-midnight: #000000;
+  --color-ivory: #FAF8F5;
+  --color-surface-1: #0A0A0F;
+  --color-surface-2: #14141E;
+  --color-surface-3: #1E1E2C;
+  --color-fog: #8E9990;
+  --color-slate: #1C1C24;
+}
+
+.native-dark-theme,
+.native-dark-theme body {
+  background-color: #000000 !important;
+  color: #FAF8F5 !important;
+}
+
+.native-dark-theme .glass {
+  background: rgba(10, 10, 15, 0.75) !important;
+  border: 1px solid rgba(201, 168, 76, 0.15) !important;
+}
+
+.native-dark-theme .glass-strong {
+  background: rgba(5, 5, 8, 0.9) !important;
+  border: 1px solid rgba(201, 168, 76, 0.2) !important;
+}
+
+.native-dark-theme .border-white\/10 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.native-dark-theme .border-white\/20 {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+.native-dark-theme .border-white\/5 {
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+.native-dark-theme .bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+.native-dark-theme .bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.native-dark-theme input, 
+.native-dark-theme select, 
+.native-dark-theme textarea {
+  background-color: #14141E !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #FAF8F5 !important;
+}
+.native-dark-theme input::placeholder, 
+.native-dark-theme textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Custom Native App Elements Overrides */
+.native-dark-theme nav {
+  background-color: rgba(10, 10, 15, 0.82) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+.native-dark-theme nav .text-ivory {
+  color: #FAF8F5 !important;
+}
+.native-dark-theme nav .text-fog {
+  color: #8E9990 !important;
+}
+.native-dark-theme nav a:hover, .native-dark-theme nav button:hover {
+  color: #C9A84C !important;
+}
+.native-dark-theme ::-webkit-scrollbar-track {
+  background: #0A0A0F !important;
+}
+.native-dark-theme ::-webkit-scrollbar-thumb {
+  background: #1E1E32 !important;
+}
+.native-dark-theme ::-webkit-scrollbar-thumb:hover {
+  background: #C9A84C !important;
+}
+.native-dark-theme #nav-give-btn {
+  background-color: #C9A84C !important;
+  color: #0A0A0F !important;
+}
+.native-dark-theme #nav-give-btn:hover {
+  background-color: #E8D48A !important;
+}
+
+
+

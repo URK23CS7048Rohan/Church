@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.agape.sanctuary',
-  appName: 'Sanctuary',
+  appName: 'AGAPE',
   webDir: 'out',
   server: {
     url: 'https://agapeinternational.vercel.app',

@@ -23,17 +23,17 @@ interface MultilingualPhoto {
   service_date: string;
 }
 
-// Mock photo data using Unsplash
+// Mock photo data using local church photos
 const MOCK_PHOTOS: MultilingualPhoto[] = [
-  { id: "1", image_url: "https://images.unsplash.com/photo-1438232992991-995b671e8640?w=600&q=70", captionKey: "photo_1_caption", caption: "Sunday morning worship", heart_count: 34, user: "Marcus T.", service_date: "2026-06-08" },
-  { id: "2", image_url: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=70", captionKey: "photo_2_caption", caption: "Community lunch after service", heart_count: 18, user: "Sarah O.", service_date: "2026-06-08" },
-  { id: "3", image_url: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&q=70", captionKey: "photo_3_caption", caption: "Youth group meeting", heart_count: 27, user: "James R.", service_date: "2026-06-01" },
-  { id: "4", image_url: "https://images.unsplash.com/photo-1609234656388-0ff363383899?w=600&q=70", captionKey: "photo_4_caption", caption: "Worship night", heart_count: 55, user: "Diana C.", service_date: "2026-06-01" },
-  { id: "5", image_url: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=70", captionKey: "photo_5_caption", caption: "Baptism Sunday - so blessed!", heart_count: 89, user: "Aisha W.", service_date: "2026-05-25" },
-  { id: "6", image_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=70", captionKey: "photo_6_caption", caption: "Prayer circle after the message", heart_count: 42, user: "Michael J.", service_date: "2026-05-25" },
-  { id: "7", image_url: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&q=70", captionKey: "photo_7_caption", caption: "Kids ministry graduation", heart_count: 63, user: "Grace A.", service_date: "2026-05-18" },
-  { id: "8", image_url: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&q=70", captionKey: "photo_8_caption", caption: "Small group fellowship", heart_count: 31, user: "David L.", service_date: "2026-05-18" },
-  { id: "9", image_url: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=70", captionKey: "photo_9_caption", caption: "Men's breakfast gathering", heart_count: 22, user: "Samuel K.", service_date: "2026-05-11" },
+  { id: "1", image_url: "/church-photos/main-prayer.jpeg", captionKey: "photo_1_caption", caption: "Blessed time of prayer and intercession", heart_count: 94, user: "Agape Media", service_date: "2026-06-08" },
+  { id: "2", image_url: "/church-photos/church-photo-1.jpeg", captionKey: "photo_2_caption", caption: "Congregational Worship", heart_count: 88, user: "Brother John", service_date: "2026-06-08" },
+  { id: "3", image_url: "/church-photos/church-photo-2.jpeg", captionKey: "photo_3_caption", caption: "Our Sanctuary", heart_count: 72, user: "Sister Sarah", service_date: "2026-06-01" },
+  { id: "4", image_url: "/church-photos/church-photo-3.jpeg", captionKey: "photo_4_caption", caption: "Praise & Worship Team", heart_count: 82, user: "Worship Leader", service_date: "2026-06-01" },
+  { id: "5", image_url: "/church-photos/church-photo-4.jpeg", captionKey: "photo_5_caption", caption: "Weekly Home Fellowships", heart_count: 65, user: "Group Coordinator", service_date: "2026-05-25" },
+  { id: "6", image_url: "/church-photos/church-photo-5.jpeg", captionKey: "photo_6_caption", caption: "Sunday Service Assembly", heart_count: 99, user: "Pastor David", service_date: "2026-05-25" },
+  { id: "7", image_url: "/church-photos/church-photo-6.jpeg", captionKey: "photo_7_caption", caption: "Gathered Believers in Fellowship", heart_count: 51, user: "Agape Media", service_date: "2026-05-18" },
+  { id: "8", image_url: "/church-photos/church-photo-7.jpeg", captionKey: "photo_8_caption", caption: "Youth Gathering", heart_count: 78, user: "Youth Leader", service_date: "2026-05-18" },
+  { id: "9", image_url: "/church-photos/church-photo-8.jpeg", captionKey: "photo_9_caption", caption: "Worship & Praise Service", heart_count: 63, user: "Brother Marcus", service_date: "2026-05-11" },
 ];
 
 const SERVICE_DATES_RAW = ["all", "2026-06-08", "2026-06-01", "2026-05-25", "2026-05-18", "2026-05-11"];

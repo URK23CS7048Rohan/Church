@@ -8,17 +8,17 @@ const BELIEFS_METADATA = [
   {
     titleKey: "beliefs_faith_title",
     descKey: "beliefs_faith_desc",
-    image: "https://images.unsplash.com/photo-1504052434569-70ad58565b90?auto=format&fit=crop&w=600&q=80",
+    image: "/church-photos/church-photo-4.jpeg",
   },
   {
     titleKey: "beliefs_healing_title",
     descKey: "beliefs_healing_desc",
-    image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=600&q=80",
+    image: "/church-photos/main-prayer.jpeg",
   },
   {
     titleKey: "beliefs_community_title",
     descKey: "beliefs_community_desc",
-    image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80",
+    image: "/church-photos/church-photo-6.jpeg",
   },
 ];
 

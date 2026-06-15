@@ -8,12 +8,12 @@ import { Heart } from "lucide-react";
 
 // Mosaic layout with varied sizes
 const MOCK_PHOTOS = [
-  { id: "1", src: "https://images.unsplash.com/photo-1438232992991-995b671e8640?w=400&q=70", caption: "Sunday worship", hearts: 34, tall: true },
-  { id: "2", src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&q=70", caption: "Community time", hearts: 18 },
-  { id: "3", src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=70", caption: "Prayer circle", hearts: 27 },
-  { id: "4", src: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&q=70", caption: "Youth group", hearts: 42, tall: true },
-  { id: "5", src: "https://images.unsplash.com/photo-1609234656388-0ff363383899?w=400&q=70", caption: "Worship night", hearts: 55 },
-  { id: "6", src: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&q=70", caption: "Baptism Sunday", hearts: 89 },
+  { id: "1", src: "/church-photos/main-prayer.jpeg", caption: "Blessed time of prayer and intercession", hearts: 94, tall: true },
+  { id: "2", src: "/church-photos/church-photo-1.jpeg", caption: "Congregational Worship", hearts: 88 },
+  { id: "3", src: "/church-photos/church-photo-2.jpeg", caption: "Our Sanctuary", hearts: 72 },
+  { id: "4", src: "/church-photos/church-photo-3.jpeg", caption: "Praise & Worship Team", hearts: 82, tall: true },
+  { id: "5", src: "/church-photos/church-photo-4.jpeg", caption: "Weekly Home Fellowships", hearts: 65 },
+  { id: "6", src: "/church-photos/church-photo-5.jpeg", caption: "Sunday Service Assembly", hearts: 99 },
 ];
 
 export function PhotoMosaic() {
