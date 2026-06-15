@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Home, Radio, Heart, Bookmark, User } from "lucide-react";
+import { Home, Radio, Heart, Image, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import { useLanguage } from "@/components/providers/LanguageProvider";
@@ -10,8 +10,8 @@ import { useLanguage } from "@/components/providers/LanguageProvider";
 const MOBILE_NAV = [
   { icon: Home, key: "nav_home", href: "/" },
   { icon: Radio, key: "nav_live", href: "/live" },
-  { icon: Heart, key: "nav_give", href: "/give" },
-  { icon: Bookmark, key: "nav_prayer", href: "/prayer" },
+  { icon: Image, key: "nav_community", href: "/community" },
+  { icon: Heart, key: "nav_prayer", href: "/prayer" },
   { icon: User, key: "nav_profile", href: "/profile" },
 ];
 
