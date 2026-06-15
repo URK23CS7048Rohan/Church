@@ -261,9 +261,10 @@ function Orb({ x, y, size, gradient, delay }: { x:string;y:string;size:number;gr
 
 function PinTile({ card, idx }: { card:PinCard; idx:number }) {
   const [liked, setLiked] = useState(false);
-  const titleFonts = ["var(--font-bebas)","var(--font-oswald)","var(--font-abril)","var(--font-raleway)","var(--font-montserrat)","var(--font-righteous)","var(--font-playfair)","var(--font-poppins)","var(--font-roboto-slab)"];
-  const descFonts  = ["var(--font-lato)","var(--font-nunito)","var(--font-inter)","var(--font-dmsans)","var(--font-space-grotesk)","var(--font-raleway)","var(--font-poppins)","var(--font-lato)","var(--font-inter)"];
-  const titleSizes = ["18px","20px","16px","22px","17px","19px","15px","21px","18px"];
+  // Refined typography scale instead of chaotic 20 fonts
+  const titleFonts = ["var(--font-playfair)", "var(--font-cormorant)", "var(--font-playfair)"];
+  const descFonts  = ["var(--font-inter)", "var(--font-lato)", "var(--font-nunito)"];
+  const titleSizes = ["17px", "18px", "16px"];
   return (
     <motion.div
       layout
@@ -364,7 +365,7 @@ function HeroParallax() {
 ──────────────────────────────────────────────── */
 
 function FeatureGrid() {
-  const labelFonts = ["var(--font-oswald)","var(--font-nunito)","var(--font-poppins)","var(--font-raleway)","var(--font-inter)","var(--font-space-grotesk)","var(--font-lato)","var(--font-montserrat)","var(--font-oswald)","var(--font-nunito)","var(--font-poppins)","var(--font-raleway)"];
+  const labelFonts = ["var(--font-inter)", "var(--font-lato)"];
   return (
     <div className="px-4">
       <div style={{ fontFamily:"var(--font-bebas)", fontSize:"18px", color:"rgba(255,255,255,0.35)", letterSpacing:"0.14em", marginBottom:"10px" }}>
@@ -387,7 +388,7 @@ function FeatureGrid() {
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background:`${t.accent}18`, border:`1.5px solid ${t.accent}30` }}>
                   <t.Icon size={20} color={t.accent}/>
                 </div>
-                <span className="text-center leading-tight" style={{ fontFamily:labelFonts[i], fontSize:"9px", color:"rgba(255,255,255,0.6)", fontWeight:600, letterSpacing:"0.04em" }}>
+                <span className="text-center leading-tight" style={{ fontFamily:labelFonts[i%labelFonts.length], fontSize:"9px", color:"rgba(255,255,255,0.6)", fontWeight:600, letterSpacing:"0.04em" }}>
                   {t.label}
                 </span>
               </motion.div>
