@@ -26,6 +26,22 @@
   --font-body: var(--font-dmsans), sans-serif;
   --font-label: var(--font-space-grotesk), sans-serif;
   --font-accent: var(--font-cinzel), serif;
+  /* Extended font palette */
+  --font-bebas: var(--font-bebas), sans-serif;
+  --font-oswald: var(--font-oswald), sans-serif;
+  --font-anton: var(--font-anton), sans-serif;
+  --font-raleway: var(--font-raleway), sans-serif;
+  --font-montserrat: var(--font-montserrat), sans-serif;
+  --font-abril: var(--font-abril), serif;
+  --font-dancing: var(--font-dancing), cursive;
+  --font-pacifico: var(--font-pacifico), cursive;
+  --font-satisfy: var(--font-satisfy), cursive;
+  --font-righteous: var(--font-righteous), sans-serif;
+  --font-nunito: var(--font-nunito), sans-serif;
+  --font-poppins: var(--font-poppins), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+  --font-roboto-slab: var(--font-roboto-slab), serif;
+  --font-lato: var(--font-lato), sans-serif;
 }
 
 /* ============================================================
@@ -98,6 +114,22 @@ input::placeholder, textarea::placeholder {
 .font-body     { font-family: var(--font-dmsans), sans-serif; }
 .font-label    { font-family: var(--font-space-grotesk), sans-serif; }
 .font-accent   { font-family: var(--font-cinzel), serif; }
+/* Extended */
+.font-bebas    { font-family: var(--font-bebas), sans-serif; }
+.font-oswald   { font-family: var(--font-oswald), sans-serif; }
+.font-anton    { font-family: var(--font-anton), sans-serif; }
+.font-raleway  { font-family: var(--font-raleway), sans-serif; }
+.font-montserrat { font-family: var(--font-montserrat), sans-serif; }
+.font-abril    { font-family: var(--font-abril), serif; }
+.font-dancing  { font-family: var(--font-dancing), cursive; }
+.font-pacifico { font-family: var(--font-pacifico), cursive; }
+.font-satisfy  { font-family: var(--font-satisfy), cursive; }
+.font-righteous { font-family: var(--font-righteous), sans-serif; }
+.font-nunito   { font-family: var(--font-nunito), sans-serif; }
+.font-poppins  { font-family: var(--font-poppins), sans-serif; }
+.font-inter    { font-family: var(--font-inter), sans-serif; }
+.font-roboto-slab { font-family: var(--font-roboto-slab), serif; }
+.font-lato     { font-family: var(--font-lato), sans-serif; }
 
 /* ============================================================
    GOLD TEXT GRADIENT
