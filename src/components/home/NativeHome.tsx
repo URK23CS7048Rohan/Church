@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   motion,
   useScroll,
@@ -321,6 +321,26 @@ function HeroParallax() {
   const y = useTransform(scrollY, [0,400], [0,90]);
   const opacity = useTransform(scrollY, [0,260], [1,0]);
   const scale = useTransform(scrollY, [0,320], [1,1.12]);
+
+  const [isLive, setIsLive] = useState(false);
+
+  useEffect(() => {
+    const checkLive = async () => {
+      try {
+        const res = await fetch("/api/live-status");
+        if (res.ok) {
+          const data = await res.json();
+          setIsLive(data.isLive);
+        }
+      } catch {
+        // silent
+      }
+    };
+    checkLive();
+    const interval = setInterval(checkLive, 60_000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative overflow-hidden rounded-b-[2.5rem]" style={{ height:"72vw", maxHeight:"340px" }}>
       <motion.div style={{ y, scale }} className="absolute inset-0">
@@ -329,12 +349,14 @@ function HeroParallax() {
         <div className="absolute inset-0" style={{ background:"linear-gradient(to top,#080812 0%,rgba(8,8,18,0.55) 50%,rgba(8,8,18,0.2) 100%)" }}/>
       </motion.div>
       <motion.div style={{ opacity }} className="absolute inset-0 flex flex-col justify-end px-5 pb-6">
-        <motion.div initial={{ opacity:0, scale:0.6 }} animate={{ opacity:1, scale:1 }} transition={{ delay:0.45, type:"spring", stiffness:220 }}
-          className="inline-flex items-center gap-1.5 mb-3 w-fit px-3 py-1 rounded-full"
-          style={{ background:"rgba(255,50,50,0.18)", border:"1px solid rgba(255,80,80,0.4)", backdropFilter:"blur(8px)" }}>
-          <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"/>
-          <span style={{ fontFamily:"var(--font-inter)", fontSize:"9px", color:"#ff7070", fontWeight:700, letterSpacing:"0.2em" }}>LIVE NOW</span>
-        </motion.div>
+        {isLive && (
+          <motion.div initial={{ opacity:0, scale:0.6 }} animate={{ opacity:1, scale:1 }} transition={{ delay:0.45, type:"spring", stiffness:220 }}
+            className="inline-flex items-center gap-1.5 mb-3 w-fit px-3 py-1 rounded-full"
+            style={{ background:"rgba(255,50,50,0.18)", border:"1px solid rgba(255,80,80,0.4)", backdropFilter:"blur(8px)" }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"/>
+            <span style={{ fontFamily:"var(--font-inter)", fontSize:"9px", color:"#ff7070", fontWeight:700, letterSpacing:"0.2em" }}>LIVE NOW</span>
+          </motion.div>
+        )}
         <motion.div initial={{ opacity:0, y:24 }} animate={{ opacity:1, y:0 }} transition={{ delay:0.18, type:"spring", stiffness:75 }}>
           <div style={{ fontFamily:"var(--font-bebas)", fontSize:"clamp(42px,12vw,58px)", color:"white", lineHeight:0.92, letterSpacing:"0.04em" }}>WHERE FAITH</div>
           <div style={{ fontFamily:"var(--font-dancing)", fontSize:"clamp(26px,8vw,36px)", lineHeight:1.1, letterSpacing:"0.02em", background:"linear-gradient(90deg,#C9A84C,#E8D48A,#C9A84C)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text" }}>

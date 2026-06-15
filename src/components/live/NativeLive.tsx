@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, Play, Tv, FileText, Send, HelpCircle, Share2 } from "lucide-react";
 import Link from "next/link";
@@ -14,8 +14,29 @@ const DEMO_VIDEO_ID = "PLuHk7Bk0R4"; // Real Youtube video ID
 
 export function NativeLive() {
   const { t } = useLanguage();
-  const [isLive, setIsLive] = useState(false); // Toggle to simulate live status
+  const [isLive, setIsLive] = useState(false);
+  const [videoId, setVideoId] = useState(DEMO_VIDEO_ID);
   const [activeTab, setActiveTab] = useState<"stream" | "notes" | "help">("stream");
+
+  useEffect(() => {
+    const checkLive = async () => {
+      try {
+        const res = await fetch("/api/live-status");
+        if (res.ok) {
+          const data = await res.json();
+          setIsLive(data.isLive);
+          if (data.videoId) {
+            setVideoId(data.videoId);
+          }
+        }
+      } catch {
+        // silent
+      }
+    };
+    checkLive();
+    const interval = setInterval(checkLive, 60_000);
+    return () => clearInterval(interval);
+  }, []);
   
   // Sermon notes states
   const [personalNotes, setPersonalNotes] = useState("");
@@ -128,7 +149,7 @@ export function NativeLive() {
                 {/* Video Area */}
                 <div className="rounded-3xl overflow-hidden aspect-video bg-black border border-white/5 relative">
                   {isLive ? (
-                    <YouTubeEmbed videoId={DEMO_VIDEO_ID} autoplay />
+                    <YouTubeEmbed videoId={videoId} autoplay />
                   ) : (
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 space-y-4">
                       <Tv size={48} className="text-white/10 animate-bounce" />
