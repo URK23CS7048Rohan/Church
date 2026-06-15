@@ -662,6 +662,7 @@ function FooterBanner() {
 ──────────────────────────────────────────────── */
 
 export function NativeHome() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchVisible, setSearchVisible] = useState(false);
 
@@ -686,16 +687,16 @@ export function NativeHome() {
           className="sticky top-0 z-50 px-5 py-3.5 flex items-center justify-between"
           style={{ background:"rgba(8,8,18,0.84)", backdropFilter:"blur(22px)", WebkitBackdropFilter:"blur(22px)", borderBottom:"1px solid rgba(255,255,255,0.05)" }}
         >
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden shrink-0 border border-white/10">
-              <img src="/logo.png" alt="Agape International Logo" className="h-6 w-auto object-contain" />
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center overflow-hidden shrink-0 border border-white/10 p-1 shadow-sm">
+              <img src="/logo.png" alt="Agape International Logo" className="h-full w-full object-contain" />
             </div>
             <div className="flex flex-col items-start">
-              <span style={{ fontFamily:"var(--font-bebas)", fontSize:"20px", letterSpacing:"0.1em", lineHeight:1, background:"linear-gradient(90deg,#C9A84C,#E8D48A,#C9A84C)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text" }}>
-                AGAPE INT'L
+              <span className="font-accent text-[12px] font-bold text-white tracking-[0.16em] leading-none uppercase">
+                {t("nav_logo_title")}
               </span>
-              <span style={{ fontFamily:"var(--font-lato)", fontSize:"7px", letterSpacing:"0.22em", color:"rgba(255,255,255,0.3)", textTransform:"uppercase", marginTop:"1px" }}>
-                Church
+              <span className="font-display text-[8px] text-[#C9A84C] tracking-[0.12em] uppercase font-bold mt-1.5 leading-none">
+                {t("nav_logo_subtitle")}
               </span>
             </div>
           </div>

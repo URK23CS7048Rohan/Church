@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export type Language = "en" | "hi" | "ml" | "ar";
 
@@ -2189,6 +2190,7 @@ const translations: Record<Language, Record<string, string>> = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
   const [language, setLanguageState] = useState<Language>("en");
 
   // Load language preference from local storage
@@ -2240,7 +2242,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         localStorage.setItem("is_native_platform", "true");
       }
     });
-  }, []);
+  }, [pathname]);
 
   const t = (key: string): string => {
     return translations[language]?.[key] ?? translations["en"]?.[key] ?? key;

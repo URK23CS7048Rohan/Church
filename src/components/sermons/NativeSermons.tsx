@@ -76,11 +76,14 @@ export function NativeSermons() {
                 className="bg-surface-1/40 border border-white/5 rounded-3xl overflow-hidden"
               >
                 {/* Video / Thumbnail Area */}
-                <div className="relative aspect-video bg-black cursor-pointer" onClick={() => setPlayingId(isPlaying ? null : sermon.id)}>
+                <div className="relative aspect-video bg-black rounded-2xl overflow-hidden">
                   {isPlaying && vid ? (
-                    <YouTubeEmbed videoId={vid} className="w-full h-full" />
+                    <YouTubeEmbed videoId={vid} autoplay className="w-full h-full" />
                   ) : (
-                    <>
+                    <div 
+                      className="relative w-full h-full cursor-pointer"
+                      onClick={() => setPlayingId(sermon.id)}
+                    >
                       {thumb && <img src={thumb} alt={sermon.title} className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />}
                       <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
                         <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
@@ -92,7 +95,7 @@ export function NativeSermons() {
                           {formatDuration(sermon.duration_seconds)}
                         </div>
                       )}
-                    </>
+                    </div>
                   )}
                 </div>
 

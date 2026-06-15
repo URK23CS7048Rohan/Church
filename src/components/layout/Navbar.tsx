@@ -299,13 +299,18 @@ export function Navbar() {
           >
             {/* Close button area */}
             <div className="flex justify-between items-center px-6 h-16">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden shrink-0 border border-white/10">
-                  <img src="/logo.png" alt="Agape International Logo" className="h-6 w-auto object-contain" />
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center overflow-hidden shrink-0 border border-white/10 p-1 shadow-sm">
+                  <img src="/logo.png" alt="Agape International Logo" className="h-full w-full object-contain" />
                 </div>
-                <span className="font-accent text-sm font-bold text-sacred tracking-wider uppercase">
-                  {t("nav_logo_title")}
-                </span>
+                <div className="flex flex-col items-start">
+                  <span className="font-accent text-[12px] font-bold text-white tracking-[0.16em] leading-none uppercase">
+                    {t("nav_logo_title")}
+                  </span>
+                  <span className="font-display text-[8px] text-[#C9A84C] tracking-[0.12em] uppercase font-bold mt-1.5 leading-none">
+                    {t("nav_logo_subtitle")}
+                  </span>
+                </div>
               </div>
               <button
                 onClick={() => setMobileOpen(false)}

@@ -67,8 +67,8 @@ export default function SignInPage() {
         {/* Logo */}
         <div className="text-center mb-10 flex flex-col items-center">
           <Link href="/" className="flex flex-col items-center gap-3 group">
-            <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center overflow-hidden border border-white/15 shadow-md transition-transform group-hover:scale-105">
-              <img src="/logo.png" alt="Agape International Logo" className="w-12 h-12 object-contain" />
+            <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center overflow-hidden border border-white/15 shadow-md transition-transform group-hover:scale-105 p-1.5">
+              <img src="/logo.png" alt="Agape International Logo" className="w-full h-full object-contain" />
             </div>
             <span className="font-accent text-3xl text-sacred tracking-wider uppercase">Agape International</span>
           </Link>
