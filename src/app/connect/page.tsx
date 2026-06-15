@@ -1,9 +1,7 @@
 "use client";
 
+import { NativePageWrapper } from "@/components/layout/NativePageWrapper";
 import Link from "next/link";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { RevealOnScroll, StaggerContainer, StaggerItem } from "@/components/ui/RevealOnScroll";
@@ -73,9 +71,7 @@ export default function ConnectPage() {
   const { t, language } = useLanguage();
 
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen pb-20 lg:pb-0">
+    <NativePageWrapper title="Connect" accentColor="#C4B5FD" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0">
         {/* Hero */}
         <div className="relative pt-32 pb-16 px-4 overflow-hidden text-center">
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(91,45,142,0.12) 0%, transparent 70%)" }} />
@@ -190,9 +186,6 @@ export default function ConnectPage() {
             </RevealOnScroll>
           </div>
         </section>
-      </main>
-      <Footer />
-      <MobileBottomNav />
-    </>
+      </NativePageWrapper>
   );
 }

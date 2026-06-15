@@ -1,8 +1,6 @@
 "use client";
 
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
+import { NativePageWrapper } from "@/components/layout/NativePageWrapper";
 import { ServiceCountdown } from "@/components/live/ServiceCountdown";
 import { SermonNotes } from "@/components/live/SermonNotes";
 import { YouTubeEmbed } from "@/components/live/YouTubeEmbed";
@@ -10,7 +8,7 @@ import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 // This would be fetched server-side in production
-const DEMO_VIDEO_ID = "dQw4w9WgXcQ";
+const DEMO_VIDEO_ID = "agapeinternationalmedia";
 const IS_LIVE = false; // Toggle when stream is active
 
 export default function LivePage() {
@@ -24,9 +22,7 @@ export default function LivePage() {
   ];
 
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen pt-16 pb-20 lg:pb-0 bg-midnight">
+    <NativePageWrapper title="Watch Live" accentColor="#6EE7B7" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0">
         {IS_LIVE ? (
           <div className="flex flex-col lg:flex-row min-h-[calc(100vh-64px)]">
             {/* YouTube embed — main content */}
@@ -138,9 +134,6 @@ export default function LivePage() {
             </div>
           </div>
         )}
-      </main>
-      <Footer />
-      <MobileBottomNav />
-    </>
+      </NativePageWrapper>
   );
 }

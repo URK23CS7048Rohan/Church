@@ -1,9 +1,7 @@
 "use client";
 
+import { NativePageWrapper } from "@/components/layout/NativePageWrapper";
 import { useState } from "react";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -91,9 +89,7 @@ function RidePageContent() {
   };
 
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen pb-20 lg:pb-0">
+    <NativePageWrapper title="Church Ride" accentColor="#34D399" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0">
         {/* Hero */}
         <div className="relative pt-32 pb-12 px-4 overflow-hidden text-center">
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% -5%, rgba(201,168,76,0.1) 0%, transparent 65%)" }} />
@@ -268,10 +264,7 @@ function RidePageContent() {
             )}
           </AnimatePresence>
         </div>
-      </main>
-      <Footer />
-      <MobileBottomNav />
-    </>
+      </NativePageWrapper>
   );
 }
 

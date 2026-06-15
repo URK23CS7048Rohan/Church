@@ -1,9 +1,7 @@
 "use client";
 
+import { NativePageWrapper } from "@/components/layout/NativePageWrapper";
 import React, { useState, useEffect } from "react";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Button } from "@/components/ui/Button";
@@ -108,9 +106,7 @@ export default function TestimoniesPage() {
   };
 
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen pt-32 pb-20 lg:pb-0 px-4">
+    <NativePageWrapper title="Testimonies" accentColor="#FB923C" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-10 border-b border-white/5 pb-8">
@@ -171,9 +167,7 @@ export default function TestimoniesPage() {
             </div>
           )}
         </div>
-      </main>
-
-      {/* Share Testimony Modal */}
+            {/* Share Testimony Modal */}
       <AnimatePresence>
         {modalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-midnight/80 backdrop-blur-sm">
@@ -258,9 +252,6 @@ export default function TestimoniesPage() {
           </div>
         )}
       </AnimatePresence>
-
-      <Footer />
-      <MobileBottomNav />
-    </>
+    </NativePageWrapper>
   );
 }

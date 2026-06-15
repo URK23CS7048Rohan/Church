@@ -1,8 +1,6 @@
 "use client";
 
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
+import { NativePageWrapper } from "@/components/layout/NativePageWrapper";
 import { GivingForm } from "@/components/give/GivingForm";
 import { GoldDivider } from "@/components/ui/GoldDivider";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
@@ -21,9 +19,7 @@ export default function GivePage() {
   const { t } = useLanguage();
 
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen pb-20 lg:pb-0">
+    <NativePageWrapper title="Give" accentColor="#FCA5A5" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0">
         {/* Page Hero */}
         <div className="relative pt-32 pb-20 px-4 overflow-hidden">
           <div
@@ -123,9 +119,6 @@ export default function GivePage() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-      <MobileBottomNav />
-    </>
+      </NativePageWrapper>
   );
 }

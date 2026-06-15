@@ -1,10 +1,8 @@
 "use client";
 
+import { NativePageWrapper } from "@/components/layout/NativePageWrapper";
 import { useState } from "react";
 import Link from "next/link";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { RevealOnScroll, StaggerContainer, StaggerItem } from "@/components/ui/RevealOnScroll";
 import { GoldDivider } from "@/components/ui/GoldDivider";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -66,9 +64,7 @@ export default function EventsPage() {
   const filtered = filter === "all" ? MOCK_EVENTS : MOCK_EVENTS.filter((e) => e.category === filter);
 
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen pb-20 lg:pb-0">
+    <NativePageWrapper title="Upcoming Events" accentColor="#FDE68A" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0">
         {/* Hero */}
         <div className="relative pt-32 pb-12 px-4 overflow-hidden">
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(91,45,142,0.12) 0%, transparent 70%)" }} />
@@ -121,10 +117,7 @@ export default function EventsPage() {
             <CalendarView events={filtered} />
           )}
         </section>
-      </main>
-      <Footer />
-      <MobileBottomNav />
-    </>
+      </NativePageWrapper>
   );
 }
 

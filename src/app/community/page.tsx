@@ -1,9 +1,7 @@
 "use client";
 
+import { NativePageWrapper } from "@/components/layout/NativePageWrapper";
 import { useState, useCallback } from "react";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
@@ -56,9 +54,7 @@ export default function CommunityPage() {
   });
 
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen pb-20 lg:pb-0">
+    <NativePageWrapper title="Community" accentColor="#86EFAC" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0">
         {/* Hero */}
         <div className="relative pt-32 pb-12 px-4 overflow-hidden">
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,168,76,0.1) 0%, transparent 70%)" }} />
@@ -123,9 +119,7 @@ export default function CommunityPage() {
             </div>
           )}
         </section>
-      </main>
-
-      {/* Upload Modal */}
+            {/* Upload Modal */}
       <AnimatePresence>
         {uploadOpen && (
           <PhotoUploadModal
@@ -138,10 +132,7 @@ export default function CommunityPage() {
           />
         )}
       </AnimatePresence>
-
-      <Footer />
-      <MobileBottomNav />
-    </>
+    </NativePageWrapper>
   );
 }
 

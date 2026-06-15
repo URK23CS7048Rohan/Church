@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
+import { NativePageWrapper } from "@/components/layout/NativePageWrapper";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Button } from "@/components/ui/Button";
@@ -239,9 +237,8 @@ export default function BiblePage() {
   const isRtlTranslation = selectedTranslation === "ARBNAV";
 
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen pt-32 pb-20 lg:pb-0 px-4">
+    <NativePageWrapper title="Holy Bible" accentColor="#7EB8F7" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0 px-4">
+      <div className="px-4 pt-6 lg:pt-0">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-6">
             <SectionHeader
@@ -478,9 +475,7 @@ export default function BiblePage() {
             </div>
           </div>
         </div>
-      </main>
-      <Footer />
-      <MobileBottomNav />
-    </>
+      </div>
+    </NativePageWrapper>
   );
 }

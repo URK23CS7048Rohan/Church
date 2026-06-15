@@ -1,9 +1,7 @@
 "use client";
 
+import { NativePageWrapper } from "@/components/layout/NativePageWrapper";
 import React, { useState, useEffect } from "react";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { Button } from "@/components/ui/Button";
 import { formatCurrency, getInitials } from "@/lib/utils";
@@ -175,9 +173,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen pt-32 pb-20 lg:pb-0 px-4">
+    <NativePageWrapper title="My Profile" accentColor="#E2D06D" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0">
         <div className="max-w-5xl mx-auto">
           {/* Member Card */}
           <RevealOnScroll>
@@ -428,9 +424,6 @@ export default function ProfilePage() {
             </RevealOnScroll>
           </div>
         </div>
-      </main>
-      <Footer />
-      <MobileBottomNav />
-    </>
+      </NativePageWrapper>
   );
 }

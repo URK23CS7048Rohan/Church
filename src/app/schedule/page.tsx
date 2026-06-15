@@ -1,9 +1,7 @@
 "use client";
 
+import { NativePageWrapper } from "@/components/layout/NativePageWrapper";
 import React, { useState } from "react";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { useLanguage } from "@/components/providers/LanguageProvider";
@@ -118,9 +116,7 @@ export default function SchedulePage() {
   };
 
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen pt-32 pb-20 lg:pb-0 px-4">
+    <NativePageWrapper title="Schedule" accentColor="#93C5FD" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-6">
             <SectionHeader
@@ -260,9 +256,6 @@ export default function SchedulePage() {
             </GlassCard>
           </div>
         </div>
-      </main>
-      <Footer />
-      <MobileBottomNav />
-    </>
+      </NativePageWrapper>
   );
 }
