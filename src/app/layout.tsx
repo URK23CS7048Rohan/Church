@@ -212,6 +212,19 @@ export default function RootLayout({
         h-full overflow-x-hidden
       `}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (localStorage.getItem("is_native_platform") === "true") {
+                  document.documentElement.classList.add("native-dark-theme");
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-full bg-midnight text-ivory antialiased font-body overflow-x-hidden">
         <LanguageProvider>
           <LenisProvider>

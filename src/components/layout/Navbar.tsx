@@ -300,7 +300,9 @@ export function Navbar() {
             {/* Close button area */}
             <div className="flex justify-between items-center px-6 h-16">
               <div className="flex items-center gap-2">
-                <img src="/logo.png" alt="Agape International Logo" className="h-8 w-auto mix-blend-multiply" />
+                <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden shrink-0 border border-white/10">
+                  <img src="/logo.png" alt="Agape International Logo" className="h-6 w-auto object-contain" />
+                </div>
                 <span className="font-accent text-sm font-bold text-sacred tracking-wider uppercase">
                   {t("nav_logo_title")}
                 </span>

@@ -687,7 +687,9 @@ export function NativeHome() {
           style={{ background:"rgba(8,8,18,0.84)", backdropFilter:"blur(22px)", WebkitBackdropFilter:"blur(22px)", borderBottom:"1px solid rgba(255,255,255,0.05)" }}
         >
           <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="Agape International Logo" className="h-8 w-auto mix-blend-multiply" />
+            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden shrink-0 border border-white/10">
+              <img src="/logo.png" alt="Agape International Logo" className="h-6 w-auto object-contain" />
+            </div>
             <div className="flex flex-col items-start">
               <span style={{ fontFamily:"var(--font-bebas)", fontSize:"20px", letterSpacing:"0.1em", lineHeight:1, background:"linear-gradient(90deg,#C9A84C,#E8D48A,#C9A84C)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text" }}>
                 AGAPE INT'L

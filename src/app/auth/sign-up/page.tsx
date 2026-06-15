@@ -59,8 +59,13 @@ export default function SignUpPage() {
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(91,45,142,0.08) 0%, transparent 70%)" }} />
 
       <div className="w-full max-w-md relative z-10">
-        <div className="text-center mb-10">
-          <Link href="/"><span className="font-accent text-3xl text-sacred tracking-wider">✦ Agape International</span></Link>
+        <div className="text-center mb-10 flex flex-col items-center">
+          <Link href="/" className="flex flex-col items-center gap-3 group">
+            <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center overflow-hidden border border-white/15 shadow-md transition-transform group-hover:scale-105">
+              <img src="/logo.png" alt="Agape International Logo" className="w-12 h-12 object-contain" />
+            </div>
+            <span className="font-accent text-3xl text-sacred tracking-wider uppercase">Agape International</span>
+          </Link>
           <p className="font-body text-fog text-sm mt-2">Join our church family today.</p>
         </div>
 

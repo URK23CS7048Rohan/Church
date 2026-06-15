@@ -1,19 +1,36 @@
-"use client";
-
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { Capacitor } from '@capacitor/core';
+
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 export function useNativePlatform() {
   const [isNative, setIsNative] = useState(false);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const isCapacitorNative = Capacitor.isNativePlatform();
-    const isQueryNative = typeof window !== 'undefined' && 
-      (new URLSearchParams(window.location.search).get("platform") === "native" || 
-       new URLSearchParams(window.location.search).get("native") === "true");
+    const isQueryNative = 
+      new URLSearchParams(window.location.search).get("platform") === "native" || 
+      new URLSearchParams(window.location.search).get("native") === "true";
+    const storedNative = localStorage.getItem("is_native_platform") === "true";
     
-    setIsNative(isCapacitorNative || isQueryNative);
+    const isQueryWeb = 
+      new URLSearchParams(window.location.search).get("platform") === "web" || 
+      new URLSearchParams(window.location.search).get("native") === "false";
+
+    if (isQueryWeb) {
+      setIsNative(false);
+      localStorage.removeItem("is_native_platform");
+    } else {
+      const active = isCapacitorNative || isQueryNative || storedNative;
+      setIsNative(active);
+      if (active) {
+        localStorage.setItem("is_native_platform", "true");
+      }
+    }
   }, []);
 
   return isNative;
 }
+

@@ -15,13 +15,21 @@ const MOBILE_NAV = [
   { icon: User, key: "nav_profile", href: "/profile" },
 ];
 
+import { useNativePlatform } from "@/hooks/useNativePlatform";
+
 export function MobileBottomNav() {
   const pathname = usePathname();
   const { t } = useLanguage();
+  const isNative = useNativePlatform();
 
   return (
     <nav
-      className="lg:hidden fixed bottom-0 left-0 right-0 z-40 glass-strong border-t border-sacred/10 pb-safe"
+      className={cn(
+        "lg:hidden fixed bottom-0 left-0 right-0 z-40 border-t pb-safe transition-colors duration-200",
+        isNative
+          ? "bg-[#0c0c16] border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]"
+          : "glass-strong border-sacred/10"
+      )}
       aria-label="Mobile navigation"
     >
       <div className="flex items-center justify-around px-2 py-2">

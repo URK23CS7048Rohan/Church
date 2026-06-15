@@ -34,7 +34,9 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <img src="/logo.png" alt="Agape International Logo" className="h-8 w-auto mix-blend-multiply" />
+              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden shrink-0 border border-white/10">
+                <img src="/logo.png" alt="Agape International Logo" className="h-6 w-auto object-contain" />
+              </div>
               <span className="font-accent text-sm font-bold text-ivory tracking-[0.15em] uppercase">
                 {t("nav_logo_title")}
               </span>

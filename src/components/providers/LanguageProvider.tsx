@@ -2226,8 +2226,18 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         (new URLSearchParams(window.location.search).get("platform") === "native" || 
          new URLSearchParams(window.location.search).get("native") === "true");
       
-      if (isCapacitorNative || isQueryNative) {
+      const isQueryWeb = typeof window !== 'undefined' &&
+        (new URLSearchParams(window.location.search).get("platform") === "web" || 
+         new URLSearchParams(window.location.search).get("native") === "false");
+         
+      const storedNative = typeof window !== 'undefined' && localStorage.getItem("is_native_platform") === "true";
+      
+      if (isQueryWeb) {
+        document.documentElement.classList.remove("native-dark-theme");
+        localStorage.removeItem("is_native_platform");
+      } else if (isCapacitorNative || isQueryNative || storedNative) {
         document.documentElement.classList.add("native-dark-theme");
+        localStorage.setItem("is_native_platform", "true");
       }
     });
   }, []);
