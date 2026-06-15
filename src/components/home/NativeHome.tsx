@@ -1,6 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { HeroSection } from "@/components/home/HeroSection";
+import { BeliefsSection } from "@/components/home/BeliefsSection";
+import { WelcomeAndMarquee } from "@/components/home/WelcomeAndMarquee";
 import { QuickActions } from "@/components/home/QuickActions";
 import { LiveWidget } from "@/components/home/LiveWidget";
 import { SermonPreview } from "@/components/home/SermonPreview";
@@ -27,7 +30,7 @@ export function NativeHome() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.12,
+        staggerChildren: 0.1,
         delayChildren: 0.05
       }
     }
@@ -74,11 +77,26 @@ export function NativeHome() {
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="flex flex-col gap-9 pt-6 relative z-10"
+        className="flex flex-col gap-9 pt-0 relative z-10"
       >
+        {/* Hero Section */}
+        <motion.div variants={itemVariants}>
+          <HeroSection />
+        </motion.div>
+
+        {/* We Believe Section */}
+        <motion.div variants={itemVariants}>
+          <BeliefsSection />
+        </motion.div>
+
         {/* Quick Actions (Optimized for Mobile Grid) */}
         <motion.div variants={itemVariants} className="px-4">
           <QuickActions />
+        </motion.div>
+
+        {/* Welcome & Marquee banner */}
+        <motion.div variants={itemVariants}>
+          <WelcomeAndMarquee />
         </motion.div>
 
         {/* Live Widget */}
