@@ -84,9 +84,18 @@ const getLocalizedTag = (tag: string, lang: string) => {
   return tagMap[tag]?.[lang] ?? tag;
 };
 
+import { useNativePlatform } from "@/hooks/useNativePlatform";
+import { NativeSchedule } from "@/components/schedule/NativeSchedule";
+
 export default function SchedulePage() {
+  const isNative = useNativePlatform();
   const { t, language } = useLanguage();
   const [activeTab, setActiveTab] = useState<"weekly" | "monthly">("weekly");
+
+  if (isNative) {
+    return <NativeSchedule />;
+  }
+
 
   const getCategoryIcon = (category: string) => {
     switch (category) {

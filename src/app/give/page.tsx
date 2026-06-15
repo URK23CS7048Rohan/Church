@@ -15,8 +15,16 @@ const IMPACT_STATS = [
   { value: 100, prefix: "", suffix: "%", labelKey: "give_steward_ops", icon: Building2 },
 ];
 
+import { useNativePlatform } from "@/hooks/useNativePlatform";
+import { NativeGive } from "@/components/give/NativeGive";
+
 export default function GivePage() {
+  const isNative = useNativePlatform();
   const { t } = useLanguage();
+
+  if (isNative) {
+    return <NativeGive />;
+  }
 
   return (
     <NativePageWrapper title="Give" accentColor="#FCA5A5" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0">

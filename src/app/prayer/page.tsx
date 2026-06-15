@@ -9,9 +9,18 @@ import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { Button } from "@/components/ui/Button";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
+import { useNativePlatform } from "@/hooks/useNativePlatform";
+import { NativePrayer } from "@/components/prayer/NativePrayer";
+
 export default function PrayerPage() {
+  const isNative = useNativePlatform();
   const [modalOpen, setModalOpen] = useState(false);
   const { t } = useLanguage();
+
+  if (isNative) {
+    return <NativePrayer />;
+  }
+
 
   return (
     <NativePageWrapper title="Prayer Wall" accentColor="#F9A8D4" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0">

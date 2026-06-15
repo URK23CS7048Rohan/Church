@@ -36,10 +36,19 @@ const MOCK_PHOTOS: MultilingualPhoto[] = [
 
 const SERVICE_DATES_RAW = ["all", "2026-06-08", "2026-06-01", "2026-05-25", "2026-05-18", "2026-05-11"];
 
+import { useNativePlatform } from "@/hooks/useNativePlatform";
+import { NativeCommunity } from "@/components/community/NativeCommunity";
+
 export default function CommunityPage() {
+  const isNative = useNativePlatform();
   const { t, language } = useLanguage();
   const [photos, setPhotos] = useState(MOCK_PHOTOS);
   const [heartedIds, setHeartedIds] = useState<Set<string>>(new Set());
+
+  if (isNative) {
+    return <NativeCommunity />;
+  }
+
   const [uploadOpen, setUploadOpen] = useState(false);
   const [dateFilter, setDateFilter] = useState("all");
 

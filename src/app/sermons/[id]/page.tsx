@@ -1,41 +1,26 @@
 "use client";
 
+import { useState } from "react";
+import Link from "next/link";
 import { NativePageWrapper } from "@/components/layout/NativePageWrapper";
 import { YouTubeEmbed } from "@/components/live/YouTubeEmbed";
 import { SermonNotes } from "@/components/live/SermonNotes";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { GoldDivider } from "@/components/ui/GoldDivider";
-import { formatDate, formatDuration, getYouTubeVideoId } from "@/lib/utils";
-import Link from "next/link";
+import { formatDate, formatDuration, getYouTubeVideoId, getYouTubeThumbnail } from "@/lib/utils";
 import { Clock, Eye, Calendar, Share2, Copy, ChevronLeft, Tag } from "lucide-react";
-
-// In production this would be a server component fetching from Supabase
-const MOCK_SERMON = {
-  id: "1",
-  title: "When God Moves in the Valley",
-  speaker: "Pastor David Mitchell",
-  series: "Mountains & Valleys",
-  description: "A powerful message about trusting God in your lowest seasons. Pastor David walks us through Psalm 23, unpacking what it means when we walk through the valley of the shadow — and why the shepherd never leaves our side. This message will encourage anyone going through a difficult time and remind you that valleys are not the end of the story.",
-  youtube_url: "https://youtube.com/watch?v=dQw4w9WgXcQ",
-  thumbnail_url: null,
-  duration_seconds: 2820,
-  sermon_date: "2026-06-08",
-  tags: ["faith", "valley", "trust", "Psalm 23"],
-  view_count: 1847,
-  created_at: "2026-06-08T11:00:00Z",
-};
-
-const RELATED = [
-  { id: "4", title: "Surrender Everything", speaker: "Pastor Sarah Mitchell", youtube_url: "https://youtube.com/watch?v=dQw4w9WgXcQ", sermon_date: "2026-05-18", series: "Mountains & Valleys" },
-  { id: "5", title: "The Spirit of Adoption", speaker: "Pastor David Mitchell", youtube_url: "https://youtube.com/watch?v=dQw4w9WgXcQ", sermon_date: "2026-05-11", series: "Identity" },
-];
+import { MOCK_SERMONS } from "@/lib/sermonData";
 
 export default function SermonDetailPage({ params }: { params: { id: string } }) {
-  const sermon = MOCK_SERMON;
+  // Find the sermon or fallback to first
+  const sermon = MOCK_SERMONS.find(s => s.id === params.id) || MOCK_SERMONS[0];
   const videoId = getYouTubeVideoId(sermon.youtube_url);
+  
+  // Get related sermons (just other ones from the list)
+  const related = MOCK_SERMONS.filter(s => s.id !== sermon.id).slice(0, 3);
 
   return (
-    <NativePageWrapper title="Sermons" accentColor="#C9A84C" mainClassName="min-h-screen pt-16 pb-20 lg:pb-0">
+    <NativePageWrapper title="Sermons" accentColor="#C9A84C" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0">
       <div className="max-w-6xl mx-auto px-4 py-8">
           {/* Back link */}
           <RevealOnScroll>
@@ -47,11 +32,15 @@ export default function SermonDetailPage({ params }: { params: { id: string } })
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Main */}
             <div className="lg:col-span-2 space-y-6">
-              {videoId && (
-                <RevealOnScroll>
+              <RevealOnScroll>
+                {videoId ? (
                   <YouTubeEmbed videoId={videoId} title={sermon.title} />
-                </RevealOnScroll>
-              )}
+                ) : (
+                  <div className="relative aspect-video rounded-2xl overflow-hidden bg-surface-2 flex items-center justify-center">
+                    <p className="font-label text-fog">Video unavailable</p>
+                  </div>
+                )}
+              </RevealOnScroll>
 
               <RevealOnScroll>
                 <div>
@@ -73,7 +62,7 @@ export default function SermonDetailPage({ params }: { params: { id: string } })
               </RevealOnScroll>
 
               {/* Tags */}
-              {sermon.tags.length > 0 && (
+              {sermon.tags && sermon.tags.length > 0 && (
                 <RevealOnScroll>
                   <div className="flex items-center gap-2 flex-wrap">
                     <Tag size={14} className="text-sacred/60" />
@@ -120,13 +109,15 @@ export default function SermonDetailPage({ params }: { params: { id: string } })
                 <div>
                   <h3 className="font-heading text-lg font-bold text-ivory mb-4">Related Sermons</h3>
                   <div className="space-y-3">
-                    {RELATED.map((r) => {
+                    {related.map((r) => {
                       const vid = getYouTubeVideoId(r.youtube_url);
+                      const thumb = r.thumbnail_url ?? (vid ? getYouTubeThumbnail(vid) : "");
+                      
                       return (
                         <Link key={r.id} href={`/sermons/${r.id}`}>
                           <div className="group flex gap-3 glass rounded-xl p-3 hover:border-sacred/30 transition-all">
                             <div className="relative w-20 aspect-video rounded-lg overflow-hidden bg-surface-2 shrink-0">
-                              {vid && <img src={`https://img.youtube.com/vi/${vid}/mqdefault.jpg`} alt={r.title} className="w-full h-full object-cover" />}
+                              {thumb && <img src={thumb} alt={r.title} className="w-full h-full object-cover" />}
                             </div>
                             <div>
                               <p className="font-heading text-sm font-semibold text-ivory group-hover:text-sacred transition-colors line-clamp-2">{r.title}</p>

@@ -400,11 +400,19 @@ function FeatureGrid() {
   );
 }
 
+import { MOCK_SERMONS } from "@/lib/sermonData";
+import { getYouTubeVideoId, getYouTubeThumbnail } from "@/lib/utils";
+
+// Removed the old YOUTUBE_VIDEOS constant since we now use MOCK_SERMONS
+
 /* ─────────────────────────────────────────────
    YOUTUBE SECTION
 ──────────────────────────────────────────────── */
 
 function YouTubeSection() {
+  // Use the real videos fetched from Agape channel
+  const latestVideos = MOCK_SERMONS.slice(0, 5);
+
   return (
     <div className="flex flex-col gap-3 px-4">
       {/* Header */}
@@ -456,40 +464,45 @@ function YouTubeSection() {
 
       {/* Video thumbnails — horizontal scroll */}
       <div className="overflow-x-auto flex gap-3 pb-2 scrollbar-hide snap-x snap-mandatory">
-        {[
-          { title:"Sunday Worship Service",   href:"https://www.youtube.com/@agapeinternationalmedia", label:"Latest" },
-          { title:"Midweek Prayer & Worship", href:"https://www.youtube.com/@agapeinternationalmedia/videos", label:"Recent" },
-          { title:"Youth Praise Night",       href:"https://www.youtube.com/@agapeinternationalmedia/videos", label:"Popular" },
-        ].map((vid, i) => (
-          <a key={i} href={vid.href} target="_blank" rel="noopener noreferrer" className="flex-shrink-0 snap-start">
-            <motion.div
-              whileTap={{ scale:0.96 }}
-              className="w-56 rounded-2xl overflow-hidden"
-              style={{ background:"#111118", border:"1px solid rgba(255,255,255,0.06)" }}
-            >
-              {/* Thumbnail placeholder with YouTube red overlay */}
-              <div className="relative h-32 flex items-center justify-center" style={{ background:`linear-gradient(135deg,#1a0a00,#0a0a1a)` }}>
-                <div className="absolute inset-0 flex items-center justify-center opacity-20">
-                  <IconYouTube size={60} color="#FF0000"/>
+        {latestVideos.map((vid, i) => {
+          const videoId = getYouTubeVideoId(vid.youtube_url);
+          const thumb = vid.thumbnail_url ?? (videoId ? getYouTubeThumbnail(videoId, "hqdefault") : "");
+          return (
+            <a key={vid.id} href={vid.youtube_url} target="_blank" rel="noopener noreferrer" className="flex-shrink-0 snap-start">
+              <motion.div
+                whileTap={{ scale:0.96 }}
+                className="w-56 rounded-2xl overflow-hidden"
+                style={{ background:"#111118", border:"1px solid rgba(255,255,255,0.06)" }}
+              >
+                {/* Thumbnail */}
+                <div className="relative h-32 flex items-center justify-center overflow-hidden" style={{ background:`linear-gradient(135deg,#1a0a00,#0a0a1a)` }}>
+                  {thumb ? (
+                    <img src={thumb} alt={vid.title} className="absolute inset-0 w-full h-full object-cover" />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center opacity-20">
+                      <IconYouTube size={60} color="#FF0000"/>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-black/20" />
+                  <div className="relative z-10 w-12 h-12 rounded-full flex items-center justify-center" style={{ background:"rgba(255,0,0,0.85)", backdropFilter:"blur(4px)" }}>
+                    <IconPlay size={22} color="white"/>
+                  </div>
+                  <span className="absolute top-2 left-2 text-[9px] px-2 py-0.5 rounded-full" style={{ fontFamily:"var(--font-inter)", background:"rgba(255,0,0,0.7)", color:"white", fontWeight:700, letterSpacing:"0.1em" }}>
+                    {i === 0 ? "Latest" : "Recent"}
+                  </span>
                 </div>
-                <div className="relative z-10 w-12 h-12 rounded-full flex items-center justify-center" style={{ background:"rgba(255,0,0,0.85)", backdropFilter:"blur(4px)" }}>
-                  <IconPlay size={22} color="white"/>
+                <div className="p-3">
+                  <p className="line-clamp-2" style={{ fontFamily:"var(--font-raleway)", fontSize:"11px", fontWeight:700, color:"white", lineHeight:1.3 }}>
+                    {vid.title}
+                  </p>
+                  <p style={{ fontFamily:"var(--font-lato)", fontSize:"9px", color:"rgba(255,255,255,0.4)", marginTop:"4px" }}>
+                    Agape International Media
+                  </p>
                 </div>
-                <span className="absolute top-2 left-2 text-[9px] px-2 py-0.5 rounded-full" style={{ fontFamily:"var(--font-inter)", background:"rgba(255,0,0,0.7)", color:"white", fontWeight:700, letterSpacing:"0.1em" }}>
-                  {vid.label}
-                </span>
-              </div>
-              <div className="p-3">
-                <p style={{ fontFamily:"var(--font-raleway)", fontSize:"11px", fontWeight:700, color:"white", lineHeight:1.3 }}>
-                  {vid.title}
-                </p>
-                <p style={{ fontFamily:"var(--font-lato)", fontSize:"9px", color:"rgba(255,255,255,0.4)", marginTop:"4px" }}>
-                  Agape International Media
-                </p>
-              </div>
-            </motion.div>
-          </a>
-        ))}
+              </motion.div>
+            </a>
+          );
+        })}
       </div>
     </div>
   );
@@ -673,12 +686,16 @@ export function NativeHome() {
           className="sticky top-0 z-50 px-5 py-3.5 flex items-center justify-between"
           style={{ background:"rgba(8,8,18,0.84)", backdropFilter:"blur(22px)", WebkitBackdropFilter:"blur(22px)", borderBottom:"1px solid rgba(255,255,255,0.05)" }}
         >
-          <div className="flex flex-col">
-            <div className="flex items-baseline gap-2">
-              <span className="flex items-center justify-center w-8 h-8 rounded-xl" style={{ background:"linear-gradient(135deg,#C9A84C,#E8D48A)", fontFamily:"var(--font-cinzel)", fontSize:"18px", color:"#0A0800", fontWeight:700 }}>A</span>
-              <span style={{ fontFamily:"var(--font-bebas)", fontSize:"24px", letterSpacing:"0.1em", lineHeight:1, background:"linear-gradient(90deg,#C9A84C,#E8D48A,#C9A84C)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text" }}>AGAPE</span>
+          <div className="flex items-center gap-2">
+            <img src="/logo.png" alt="Agape International Logo" className="h-8 w-auto mix-blend-multiply" />
+            <div className="flex flex-col items-start">
+              <span style={{ fontFamily:"var(--font-bebas)", fontSize:"20px", letterSpacing:"0.1em", lineHeight:1, background:"linear-gradient(90deg,#C9A84C,#E8D48A,#C9A84C)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text" }}>
+                AGAPE INT'L
+              </span>
+              <span style={{ fontFamily:"var(--font-lato)", fontSize:"7px", letterSpacing:"0.22em", color:"rgba(255,255,255,0.3)", textTransform:"uppercase", marginTop:"1px" }}>
+                Church
+              </span>
             </div>
-            <span style={{ fontFamily:"var(--font-lato)", fontSize:"7px", letterSpacing:"0.22em", color:"rgba(255,255,255,0.3)", textTransform:"uppercase", marginTop:"-1px" }}>International Church</span>
           </div>
           <div className="flex items-center gap-2">
             <motion.button whileTap={{ scale:0.88 }} onClick={() => setSearchVisible(!searchVisible)}

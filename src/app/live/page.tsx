@@ -11,11 +11,20 @@ import { useLanguage } from "@/components/providers/LanguageProvider";
 const DEMO_VIDEO_ID = "agapeinternationalmedia";
 const IS_LIVE = false; // Toggle when stream is active
 
+import { useNativePlatform } from "@/hooks/useNativePlatform";
+import { NativeLive } from "@/components/live/NativeLive";
+
 export default function LivePage() {
+  const isNative = useNativePlatform();
   const { t } = useLanguage();
+
+  if (isNative) {
+    return <NativeLive />;
+  }
 
   const waitLinks = [
     { labelKey: "live_link_sermons", defaultLabel: "Catch up on sermons", href: "/sermons" },
+
     { labelKey: "live_link_events", defaultLabel: "Browse upcoming events", href: "/events" },
     { labelKey: "live_link_prayer", defaultLabel: "Submit a prayer request", href: "/prayer" },
     { labelKey: "live_link_connect", defaultLabel: "Connect with a small group", href: "/connect" },

@@ -11,10 +11,19 @@ import { toast } from "react-hot-toast";
 import Link from "next/link";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
+import { useNativePlatform } from "@/hooks/useNativePlatform";
+import { NativeProfile } from "@/components/profile/NativeProfile";
+
 export default function ProfilePage() {
+  const isNative = useNativePlatform();
   const { t, language } = useLanguage();
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState<any>(null);
+
+  if (isNative) {
+    return <NativeProfile />;
+  }
+
   const [birthday, setBirthday] = useState("");
   const [phone, setPhone] = useState("");
   const [fullName, setFullName] = useState("");

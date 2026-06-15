@@ -1,5 +1,7 @@
 "use client";
 
+import { useNativePlatform } from "@/hooks/useNativePlatform";
+import { NativeRide } from "@/components/ride/NativeRide";
 import { NativePageWrapper } from "@/components/layout/NativePageWrapper";
 import { useState } from "react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -312,6 +314,9 @@ function RideOfferCard({ offer, onRequest }: RideOfferCardProps) {
 }
 
 export default function RidePage() {
+  const isNative = useNativePlatform();
+  if (isNative) return <NativeRide />;
+
   const { t } = useLanguage();
   return (
     <Suspense fallback={

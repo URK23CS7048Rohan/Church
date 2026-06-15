@@ -19,10 +19,19 @@ interface Testimony {
   created_at: string;
 }
 
+import { useNativePlatform } from "@/hooks/useNativePlatform";
+import { NativeTestimonies } from "@/components/testimonies/NativeTestimonies";
+
 export default function TestimoniesPage() {
+  const isNative = useNativePlatform();
   const { t } = useLanguage();
   const [testimonies, setTestimonies] = useState<Testimony[]>([]);
   const [loading, setLoading] = useState(true);
+
+  if (isNative) {
+    return <NativeTestimonies />;
+  }
+
   
   // Submit Form state
   const [modalOpen, setModalOpen] = useState(false);

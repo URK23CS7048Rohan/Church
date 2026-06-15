@@ -7,52 +7,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { RevealOnScroll, StaggerContainer, StaggerItem } from "@/components/ui/RevealOnScroll";
 import { formatDate, formatDuration, getYouTubeVideoId, getYouTubeThumbnail } from "@/lib/utils";
 import type { Sermon } from "@/types";
-
-// Mock data for display when no DB connected
-const MOCK_SERMONS: Sermon[] = [
-  {
-    id: "1",
-    title: "When God Moves in the Valley",
-    speaker: "Pastor David Mitchell",
-    series: "Mountains & Valleys",
-    description: "A powerful message about trusting God in your lowest seasons.",
-    youtube_url: "https://www.youtube.com/@agapeinternationalmedia",
-    thumbnail_url: null,
-    duration_seconds: 2820,
-    sermon_date: "2026-06-08",
-    tags: ["faith", "valley", "trust"],
-    view_count: 1847,
-    created_at: "2026-06-08T11:00:00Z",
-  },
-  {
-    id: "2",
-    title: "The Power of Community",
-    speaker: "Pastor Sarah Mitchell",
-    series: "We Are One",
-    description: "Why belonging to a church family changes everything.",
-    youtube_url: "https://www.youtube.com/@agapeinternationalmedia",
-    thumbnail_url: null,
-    duration_seconds: 2340,
-    sermon_date: "2026-06-01",
-    tags: ["community", "belonging"],
-    view_count: 2103,
-    created_at: "2026-06-01T09:00:00Z",
-  },
-  {
-    id: "3",
-    title: "Radical Generosity",
-    speaker: "Pastor David Mitchell",
-    series: "Kingdom Economy",
-    description: "What the Bible truly says about giving and abundance.",
-    youtube_url: "https://www.youtube.com/@agapeinternationalmedia",
-    thumbnail_url: null,
-    duration_seconds: 3060,
-    sermon_date: "2026-05-25",
-    tags: ["giving", "generosity", "stewardship"],
-    view_count: 3421,
-    created_at: "2026-05-25T09:00:00Z",
-  },
-];
+import { MOCK_SERMONS } from "@/lib/sermonData";
 
 interface SermonPreviewProps {
   sermons?: Sermon[];

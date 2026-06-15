@@ -56,15 +56,24 @@ const CATEGORY_COLORS: Record<string, string> = {
   other: "bg-fog/10 text-fog border border-fog/20",
 };
 
+import { useNativePlatform } from "@/hooks/useNativePlatform";
+import { NativeEvents } from "@/components/events/NativeEvents";
+
 export default function EventsPage() {
+  const isNative = useNativePlatform();
   const { t, language } = useLanguage();
   const [filter, setFilter] = useState<EventCategory | "all">("all");
   const [view, setView] = useState<"grid" | "calendar">("grid");
+
+  if (isNative) {
+    return <NativeEvents />;
+  }
 
   const filtered = filter === "all" ? MOCK_EVENTS : MOCK_EVENTS.filter((e) => e.category === filter);
 
   return (
     <NativePageWrapper title="Upcoming Events" accentColor="#FDE68A" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0">
+
         {/* Hero */}
         <div className="relative pt-32 pb-12 px-4 overflow-hidden">
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(91,45,142,0.12) 0%, transparent 70%)" }} />

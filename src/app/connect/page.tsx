@@ -67,8 +67,16 @@ const getLocalizedDay = (day: string, lang: string) => {
   return daysMap[day]?.[lang] ?? day;
 };
 
+import { useNativePlatform } from "@/hooks/useNativePlatform";
+import { NativeConnect } from "@/components/connect/NativeConnect";
+
 export default function ConnectPage() {
+  const isNative = useNativePlatform();
   const { t, language } = useLanguage();
+
+  if (isNative) {
+    return <NativeConnect />;
+  }
 
   return (
     <NativePageWrapper title="Connect" accentColor="#C4B5FD" mainClassName="min-h-screen pt-32 pb-20 lg:pb-0">
