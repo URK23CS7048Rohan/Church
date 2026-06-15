@@ -295,12 +295,12 @@ export function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-midnight/97 backdrop-blur-2xl flex flex-col"
+            className="fixed inset-0 z-50 bg-midnight/97 backdrop-blur-2xl overflow-y-auto flex flex-col"
           >
             {/* Close button area */}
-            <div className="flex justify-between items-center px-6 h-16">
+            <div className="flex justify-between items-center px-6 h-16 shrink-0">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center overflow-hidden shrink-0 border border-white/10 p-1 shadow-sm">
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden shrink-0 border border-white/25 p-1 shadow-md">
                   <img src="/logo.png" alt="Agape International Logo" className="h-full w-full object-contain" />
                 </div>
                 <div className="flex flex-col items-start">
@@ -322,7 +322,7 @@ export function Navbar() {
             </div>
 
             {/* Nav links with stagger */}
-            <div className="flex flex-col justify-center flex-1 px-8 gap-2">
+            <div className="flex flex-col px-8 py-6 gap-2 shrink-0">
               {MOBILE_LINKS.map((link, i) => {
                 const isApk = link.href.endsWith(".apk");
                 return (
@@ -365,7 +365,7 @@ export function Navbar() {
             </div>
 
             {/* Bottom CTA */}
-            <div className="px-8 pb-10 pt-4 border-t border-white/10">
+            <div className="px-8 pb-12 pt-4 border-t border-white/10 shrink-0 mt-auto">
               <Link href="/auth/sign-up" className="block">
                 <Button variant="primary" size="lg" className="w-full">
                   {t("nav_join_community")}

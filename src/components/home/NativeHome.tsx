@@ -710,7 +710,7 @@ export function NativeHome() {
           style={{ background:"rgba(8,8,18,0.84)", backdropFilter:"blur(22px)", WebkitBackdropFilter:"blur(22px)", borderBottom:"1px solid rgba(255,255,255,0.05)" }}
         >
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center overflow-hidden shrink-0 border border-white/10 p-1 shadow-sm">
+            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden shrink-0 border border-white/25 p-1 shadow-md">
               <img src="/logo.png" alt="Agape International Logo" className="h-full w-full object-contain" />
             </div>
             <div className="flex flex-col items-start">

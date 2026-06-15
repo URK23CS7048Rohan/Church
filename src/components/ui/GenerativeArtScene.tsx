@@ -123,16 +123,108 @@ export function GenerativeArtScene() {
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
-    const pointLight = new THREE.PointLight(0xffffff, 1, 100);
-    pointLight.position.set(0, 0, 5);
-    lightRef.current = pointLight;
-    scene.add(pointLight);
+    // 1. Solid gold inner core
+    const innerGeometry = new THREE.SphereGeometry(0.85, 32, 32);
+    const innerMaterial = new THREE.MeshStandardMaterial({
+      color: new THREE.Color("#C9A84C"),
+      metalness: 0.9,
+      roughness: 0.15,
+      flatShading: false,
+    });
+    const innerMesh = new THREE.Mesh(innerGeometry, innerMaterial);
+    scene.add(innerMesh);
+
+    // 2. Floating stardust field (particles)
+    const particleCount = 180;
+    const particlesGeo = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount; i++) {
+      const r = 1.1 + Math.random() * 1.6;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos((Math.random() * 2) - 1);
+      
+      positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+      positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+      positions[i * 3 + 2] = r * Math.cos(phi);
+    }
+    particlesGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+
+    const createParticleTexture = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = 16;
+      canvas.height = 16;
+      const ctx = canvas.getContext("2d");
+      if (ctx) {
+        const grad = ctx.createRadialGradient(8, 8, 0, 8, 8, 8);
+        grad.addColorStop(0, "rgba(255, 255, 255, 1)");
+        grad.addColorStop(0.3, "rgba(201, 168, 76, 0.8)");
+        grad.addColorStop(1, "rgba(201, 168, 76, 0)");
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, 16, 16);
+      }
+      return new THREE.CanvasTexture(canvas);
+    };
+
+    const particlesMat = new THREE.PointsMaterial({
+      size: 0.05,
+      map: createParticleTexture(),
+      transparent: true,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    });
+    const particleSystem = new THREE.Points(particlesGeo, particlesMat);
+    scene.add(particleSystem);
+
+    // 3. Dynamic lights for standard material reflection
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.45);
+    scene.add(ambientLight);
+
+    const light1 = new THREE.PointLight(0xffd700, 2.5, 40);
+    light1.position.set(3, 4, 3);
+    scene.add(light1);
+
+    const light2 = new THREE.PointLight(0x7eb8f7, 2.0, 40);
+    light2.position.set(-3, -4, 2);
+    scene.add(light2);
+
+    const interactiveLight = new THREE.PointLight(0xfff5e6, 2.0, 30);
+    interactiveLight.position.set(0, 0, 4);
+    lightRef.current = interactiveLight;
+    scene.add(interactiveLight);
+
+    // Smooth entry transition scale
+    mesh.scale.set(0.1, 0.1, 0.1);
+    innerMesh.scale.set(0.1, 0.1, 0.1);
+    particleSystem.scale.set(0.1, 0.1, 0.1);
 
     let frameId: number;
     const animate = (t: number) => {
-      material.uniforms.time.value = t * 0.0003;
-      mesh.rotation.y += 0.0004;
-      mesh.rotation.x += 0.0002;
+      const timeVal = t * 0.0003;
+      material.uniforms.time.value = timeVal;
+      
+      mesh.rotation.y += 0.0003;
+      mesh.rotation.x += 0.0001;
+
+      innerMesh.rotation.y -= 0.0005;
+      innerMesh.rotation.z += 0.0002;
+
+      particleSystem.rotation.y += 0.001;
+      particleSystem.rotation.x -= 0.0004;
+
+      if (mesh.scale.x < 1.0) {
+        const newScale = Math.min(1.0, mesh.scale.x + 0.035);
+        mesh.scale.set(newScale, newScale, newScale);
+        innerMesh.scale.set(newScale, newScale, newScale);
+        particleSystem.scale.set(newScale, newScale, newScale);
+      }
+
+      light1.position.x = Math.cos(timeVal) * 3;
+      light1.position.z = Math.sin(timeVal) * 3;
+      light1.position.y = Math.sin(timeVal * 0.5) * 2;
+
+      light2.position.x = -Math.cos(timeVal * 0.7) * 3;
+      light2.position.z = -Math.sin(timeVal * 0.7) * 3;
+
       renderer.render(scene, camera);
       frameId = requestAnimationFrame(animate);
     };
@@ -157,6 +249,12 @@ export function GenerativeArtScene() {
         lightRef.current.position.copy(pos);
       }
       material.uniforms.pointLightPos.value.copy(pos);
+
+      // Interactive subtle tilt based on mouse positioning
+      mesh.rotation.x = y * 0.15;
+      mesh.rotation.y = x * 0.15;
+      innerMesh.rotation.x = -y * 0.12;
+      innerMesh.rotation.y = -x * 0.12;
     };
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -183,6 +281,10 @@ export function GenerativeArtScene() {
       }
       geometry.dispose();
       material.dispose();
+      innerGeometry.dispose();
+      innerMaterial.dispose();
+      particlesGeo.dispose();
+      particlesMat.dispose();
     };
   }, []);
 
