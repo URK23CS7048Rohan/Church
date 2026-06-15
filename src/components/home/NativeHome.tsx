@@ -205,7 +205,7 @@ const FEATURE_TILES = [
 
 // Real YouTube video IDs from the Agape International channel
 const YOUTUBE_VIDEOS = [
-  { id: "yt1", videoId: "PLuHk7Bk0R4", title: "Sunday Worship Service", thumb: `https://i.ytimg.com/vi/placeholder1/hqdefault.jpg`, channel: "Agape International Media", date: "Live" },
+  { id: "yt1", videoId: "PLuHk7Bk0R4", title: "Friday Worship Service", thumb: `https://i.ytimg.com/vi/placeholder1/hqdefault.jpg`, channel: "Agape International Media", date: "Live" },
   { id: "yt2", videoId: "YT_AGAPE_2",  title: "Mid-Week Prayer & Worship", thumb: `https://i.ytimg.com/vi/placeholder2/hqdefault.jpg`, channel: "Agape International Media", date: "Recent" },
   { id: "yt3", videoId: "YT_AGAPE_3",  title: "Youth Service Highlights",   thumb: `https://i.ytimg.com/vi/placeholder3/hqdefault.jpg`, channel: "Agape International Media", date: "This Week" },
 ];
@@ -216,19 +216,19 @@ interface PinCard {
 }
 
 const PIN_CARDS: PinCard[] = [
-  { id:"p1", src:"/church-photos/main-prayer.jpeg",    category:"worship",   title:"Power of Prayer",   desc:"A holy session that moved heaven and earth.",  tag:"Worship",   height:"tall",  meta:"Sunday" },
+  { id:"p1", src:"/church-photos/main-prayer.jpeg",    category:"worship",   title:"Power of Prayer",   desc:"A holy session that moved heaven and earth.",  tag:"Worship",   height:"tall",  meta:"Friday" },
   { id:"p2", src:"/church-photos/church-photo-1.jpeg", category:"community", title:"Sacred Praise",     desc:"Congregational worship — spirit and truth.",   tag:"Community", height:"med",   meta:"Fellowship" },
   { id:"p3", src:"/church-photos/church-photo-3.jpeg", category:"worship",   title:"Worship Team",      desc:"Ministering through music and dynamic praise.", tag:"Worship",   height:"short", meta:"Music" },
   { id:"p4", src:"/church-photos/church-photo-5.jpeg", category:"community", title:"Home Fellowships",  desc:"Discipleship and brotherly love in action.",    tag:"Community", height:"tall",  meta:"Cell Groups" },
   { id:"p5", src:"/church-photos/church-photo-7.jpeg", category:"events",    title:"Youth Fellowship",  desc:"Uplifting and guiding the next generation.",   tag:"Events",    height:"med",   meta:"Youth" },
-  { id:"p6", src:"/church-photos/church-photo-2.jpeg", category:"sermons",   title:"The Living Word",   desc:"Faith and perseverance from the pulpit.",       tag:"Sermons",   height:"short", meta:"Last Sunday" },
+  { id:"p6", src:"/church-photos/church-photo-2.jpeg", category:"sermons",   title:"The Living Word",   desc:"Faith and perseverance from the pulpit.",       tag:"Sermons",   height:"short", meta:"Last Friday" },
   { id:"p7", src:"/church-photos/church-photo-4.jpeg", category:"events",    title:"Annual Retreat",    desc:"Three days of renewal and spiritual refreshing.",tag:"Events",    height:"tall",  meta:"Upcoming" },
   { id:"p8", src:"/church-photos/church-photo-6.jpeg", category:"community", title:"Outreach Day",      desc:"Serving the neighbourhood with love and grace.",tag:"Community", height:"med",   meta:"Outreach" },
   { id:"p9", src:"/church-photos/church-photo-8.jpeg", category:"worship",   title:"Sunrise Devotion",  desc:"Early morning prayer — the day begins with God.",tag:"Worship",  height:"short", meta:"Devotion" },
 ];
 
 const EVENTS = [
-  { id:"e1", title:"Sunday Celebration", time:"10:00 AM", date:"Every Sunday",   place:"Main Sanctuary", color:"#C9A84C", Icon: IconCross },
+  { id:"e1", title:"Friday Celebration", time:"10:00 AM", date:"Every Friday",   place:"Main Sanctuary", color:"#C9A84C", Icon: IconCross },
   { id:"e2", title:"Youth Night",        time:"7:00 PM",  date:"This Friday",    place:"Youth Hall",     color:"#9B87F5", Icon: IconFlame },
   { id:"e3", title:"Prayer & Fasting",   time:"6:00 AM",  date:"Wednesday",      place:"Prayer Room",    color:"#5DA3A3", Icon: IconPrayer },
 ];

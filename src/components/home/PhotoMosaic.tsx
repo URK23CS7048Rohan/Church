@@ -13,7 +13,7 @@ const MOCK_PHOTOS = [
   { id: "3", src: "/church-photos/church-photo-2.jpeg", caption: "Our Sanctuary", hearts: 72 },
   { id: "4", src: "/church-photos/church-photo-3.jpeg", caption: "Praise & Worship Team", hearts: 82, tall: true },
   { id: "5", src: "/church-photos/church-photo-4.jpeg", caption: "Weekly Home Fellowships", hearts: 65 },
-  { id: "6", src: "/church-photos/church-photo-5.jpeg", caption: "Sunday Service Assembly", hearts: 99 },
+  { id: "6", src: "/church-photos/church-photo-5.jpeg", caption: "Friday Service Assembly", hearts: 99 },
 ];
 
 export function PhotoMosaic() {
@@ -22,7 +22,7 @@ export function PhotoMosaic() {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-end justify-between mb-12">
           <SectionHeader
-            eyebrow="This Sunday"
+            eyebrow="This Friday"
             title="The Family You"
             titleHighlight="Love"
             align="left"

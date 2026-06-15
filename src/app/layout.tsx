@@ -169,7 +169,7 @@ const lato = Lato({
 export const metadata: Metadata = {
   title: "Agape International — Where Your Faith Lives",
   description:
-    "Agape International is a vibrant community rooted in love, worship, and belonging. Join us Sundays at 9AM & 11AM | Wednesdays at 7PM.",
+    "Agape International is a vibrant community rooted in love, worship, and belonging. Join us Fridays at 9AM & 11AM | Wednesdays at 7PM.",
   keywords: [
     "Agape International",
     "church",

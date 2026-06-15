@@ -10,9 +10,9 @@ const CHANNEL_URL = "https://www.youtube.com/@agapeinternationalmedia";
 const FEATURED_VIDEOS = [
   {
     id: "v1",
-    title: "Sunday Worship Service — Live from Agape International",
+    title: "Friday Worship Service — Live from Agape International",
     speaker: "Agape International Media",
-    series: "Sunday Service",
+    series: "Friday Service",
     href: CHANNEL_URL,
     label: "Latest",
     accent: "#FF4444",
@@ -164,7 +164,7 @@ export function YouTubeSection() {
                 <h3 className="font-heading text-xl font-bold text-ivory">Agape International Media</h3>
                 <p className="font-body text-fog text-sm mt-0.5">@agapeinternationalmedia · Sermons, Worship & Live Services</p>
                 <div className="flex items-center gap-3 mt-2">
-                  <span className="font-label text-xs text-fog/50">Watch our Sunday services, midweek prayer, youth nights and more →</span>
+                  <span className="font-label text-xs text-fog/50">Watch our Friday services, midweek prayer, youth nights and more →</span>
                 </div>
               </div>
 

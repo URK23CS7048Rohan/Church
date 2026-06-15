@@ -28,7 +28,7 @@ const MOCK_PHOTOS: MultilingualPhoto[] = [
   { id: "3", image_url: "/church-photos/church-photo-2.jpeg", captionKey: "photo_3_caption", caption: "Our Sanctuary", heart_count: 72, user: "Sister Sarah", service_date: "2026-06-01" },
   { id: "4", image_url: "/church-photos/church-photo-3.jpeg", captionKey: "photo_4_caption", caption: "Praise & Worship Team", heart_count: 82, user: "Worship Leader", service_date: "2026-06-01" },
   { id: "5", image_url: "/church-photos/church-photo-4.jpeg", captionKey: "photo_5_caption", caption: "Weekly Home Fellowships", heart_count: 65, user: "Group Coordinator", service_date: "2026-05-25" },
-  { id: "6", image_url: "/church-photos/church-photo-5.jpeg", captionKey: "photo_6_caption", caption: "Sunday Service Assembly", heart_count: 99, user: "Pastor David", service_date: "2026-05-25" },
+  { id: "6", image_url: "/church-photos/church-photo-5.jpeg", captionKey: "photo_6_caption", caption: "Friday Service Assembly", heart_count: 99, user: "Pastor Reni Peter", service_date: "2026-05-25" },
   { id: "7", image_url: "/church-photos/church-photo-6.jpeg", captionKey: "photo_7_caption", caption: "Gathered Believers in Fellowship", heart_count: 51, user: "Agape Media", service_date: "2026-05-18" },
   { id: "8", image_url: "/church-photos/church-photo-7.jpeg", captionKey: "photo_8_caption", caption: "Youth Gathering", heart_count: 78, user: "Youth Leader", service_date: "2026-05-18" },
   { id: "9", image_url: "/church-photos/church-photo-8.jpeg", captionKey: "photo_9_caption", caption: "Worship & Praise Service", heart_count: 63, user: "Brother Marcus", service_date: "2026-05-11" },

@@ -166,7 +166,7 @@ export default function ProfilePage() {
 
   const getLocalizedDay = (day: string) => {
     const daysMap: Record<string, Record<string, string>> = {
-      Sunday: { en: "Sundays at 9 AM & 11 AM", hi: "रविवार सुबह 9 और 11 बजे", ml: "ഞായറാഴ്ചകളിൽ രാവിലെ 9 നും 11 നും", ar: "الآحاد 9 صباحاً و 11 صباحاً" },
+      Friday: { en: "Fridays at 9 AM & 11 AM", hi: "शुक्रवार सुबह 9 और 11 बजे", ml: "വെള്ളിയാഴ്ചകളിൽ രാവിലെ 9 നും 11 നും", ar: "الجمعة 9 صباحاً و 11 صباحاً" },
       Thursday: { en: "Thursdays at 7 PM", hi: "गुरुवार शाम 7 बजे", ml: "വ്യാഴാഴ്ചകളിൽ വൈകുന്നേരം 7 ന്", ar: "الخميس 7 مساءً" },
     };
     return daysMap[day]?.[language] ?? day;

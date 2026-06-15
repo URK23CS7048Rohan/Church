@@ -95,6 +95,16 @@ export function getNextSunday(): Date {
   return nextSunday;
 }
 
+export function getNextFriday(): Date {
+  const now = new Date();
+  const dayOfWeek = now.getDay(); // 0 = Sunday, 5 = Friday
+  const daysUntilFriday = dayOfWeek <= 5 ? 5 - dayOfWeek || 7 : 7 - dayOfWeek + 5;
+  const nextFriday = new Date(now);
+  nextFriday.setDate(now.getDate() + (daysUntilFriday === 0 ? 7 : daysUntilFriday));
+  nextFriday.setHours(9, 0, 0, 0); // 9AM service
+  return nextFriday;
+}
+
 export function calculateCountdown(target: Date): {
   days: number;
   hours: number;

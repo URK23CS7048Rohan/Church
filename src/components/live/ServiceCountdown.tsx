@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { calculateCountdown, getNextSunday } from "@/lib/utils";
+import { calculateCountdown, getNextFriday } from "@/lib/utils";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 export function ServiceCountdown() {
@@ -9,7 +9,7 @@ export function ServiceCountdown() {
   const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const update = () => setTime(calculateCountdown(getNextSunday()));
+    const update = () => setTime(calculateCountdown(getNextFriday()));
     update();
     const interval = setInterval(update, 1000);
     return () => clearInterval(interval);

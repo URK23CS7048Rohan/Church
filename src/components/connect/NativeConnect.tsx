@@ -25,13 +25,13 @@ const MOCK_GROUPS: Group[] = [
   { id: "1", name: "Young Adults Group", category: "young-adults", meeting_day: "Thursday", meeting_time: "7:00 PM", location: "Room 204", max_members: 30, member_count: 18, leader: "Alex Chen" },
   { id: "2", name: "Married Couples", category: "couples", meeting_day: "Friday", meeting_time: "7:30 PM", location: "Community Room", max_members: 20, member_count: 12, leader: "David & Lisa Morris" },
   { id: "3", name: "Men's Breakfast", category: "men", meeting_day: "Saturday", meeting_time: "7:30 AM", location: "Fellowship Hall", max_members: 25, member_count: 22, leader: "Marcus Thompson" },
-  { id: "4", name: "Women of Worth", category: "women", meeting_day: "Tuesday", meeting_time: "6:30 PM", location: "Prayer Room", max_members: 30, member_count: 27, leader: "Sarah Mitchell" },
-  { id: "5", name: "Youth Life Study", category: "youth", meeting_day: "Sunday", meeting_time: "12:30 PM", location: "Youth Room", max_members: 40, member_count: 38, leader: "James Rivera" },
+  { id: "4", name: "Women of Worth", category: "women", meeting_day: "Tuesday", meeting_time: "6:30 PM", location: "Prayer Room", max_members: 30, member_count: 27, leader: "Pastor Reni Peter" },
+  { id: "5", name: "Youth Life Study", category: "youth", meeting_day: "Friday", meeting_time: "12:30 PM", location: "Youth Room", max_members: 40, member_count: 38, leader: "James Rivera" },
 ];
 
 const MINISTRIES = [
   { id: "worship", icon: Music, label: "Worship & Praise", desc: "Join our choir, musicians, or sound team.", spots: "Open" },
-  { id: "childrens", icon: Baby, label: "Children's Ministry", desc: "Teach and care for kids during Sunday service.", spots: "3 spots left" },
+  { id: "childrens", icon: Baby, label: "Children's Ministry", desc: "Teach and care for kids during Friday service.", spots: "3 spots left" },
   { id: "prayer", icon: Heart, label: "Prayer & Intercession", desc: "Help pray for requests on the wall.", spots: "Open" },
   { id: "outreach", icon: Globe, label: "Outreach & Missions", desc: "Local food drives and neighborhood service.", spots: "5 spots left" },
 ];

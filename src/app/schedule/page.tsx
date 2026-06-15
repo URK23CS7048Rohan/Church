@@ -20,7 +20,7 @@ interface ScheduleItem {
 
 const WEEKLY_SCHEDULE: { day: string; items: ScheduleItem[] }[] = [
   {
-    day: "Sunday",
+    day: "Friday",
     items: [
       { time: "9:00 AM", titleKey: "sched_w_1_title", descKey: "sched_w_1_desc", location: "Agape Worship Hall", category: "service", tag: "Main" },
       { time: "11:00 AM", titleKey: "sched_w_2_title", descKey: "sched_w_2_desc", location: "Agape Worship Hall", category: "service", tag: "Main" },
@@ -43,7 +43,7 @@ const WEEKLY_SCHEDULE: { day: string; items: ScheduleItem[] }[] = [
 ];
 
 const MONTHLY_SPECIALS: { date: string; titleKey: string; time: string; location: string; descKey: string; category: "service" | "prayer" | "outreach" | "bible-study" }[] = [
-  { date: "1st Sunday", titleKey: "sched_m_1_title", time: "9:00 AM & 11:00 AM", location: "Main Sanctuary", descKey: "sched_m_1_desc", category: "service" },
+  { date: "1st Friday", titleKey: "sched_m_1_title", time: "9:00 AM & 11:00 AM", location: "Main Sanctuary", descKey: "sched_m_1_desc", category: "service" },
   { date: "1st Friday", titleKey: "sched_m_2_title", time: "10:00 PM - 2:00 AM", location: "Agape Chapel", descKey: "sched_m_2_desc", category: "prayer" },
   { date: "2nd Saturday", titleKey: "sched_m_3_title", time: "9:00 AM", location: "Outreach Center", descKey: "sched_m_3_desc", category: "outreach" },
   { date: "3rd Saturday", titleKey: "sched_m_4_title", time: "8:30 AM", location: "Fellowship Hall", descKey: "sched_m_4_desc", category: "bible-study" },
@@ -65,7 +65,7 @@ const getLocalizedDay = (day: string, lang: string) => {
 
 const getLocalizedOccurrence = (dateStr: string, lang: string) => {
   const occurrenceMap: Record<string, Record<string, string>> = {
-    "1st Sunday": { en: "1st Sunday", hi: "पहला रविवार", ml: "ഒന്നാം ഞായറാഴ്ച", ar: "الأحد الأول" },
+    "1st Friday": { en: "1st Friday", hi: "पहला शुक्रवार", ml: "ഒന്നാം വെള്ളിയാഴ്ച", ar: "الجمعة الأولى" },
     "1st Friday": { en: "1st Friday", hi: "पहला शुक्रवार", ml: "ഒന്നാം വെള്ളിയാഴ്ച", ar: "الجمعة الأولى" },
     "2nd Saturday": { en: "2nd Saturday", hi: "दूसरा शनिवार", ml: "രണ്ടാം ശനിയാഴ്ച", ar: "السبت الثاني" },
     "3rd Saturday": { en: "3rd Saturday", hi: "तीसरा शनिवार", ml: "മൂന്നാം ശനിയാഴ്ച", ar: "السبت الثالث" },

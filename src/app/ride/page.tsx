@@ -27,8 +27,8 @@ const MOCK_OFFERS: RideOffer[] = [
 ];
 
 const SERVICES = [
-  { id: "sun-9", labelKey: "ride_service_sun_9", defaultLabel: "Sunday 9:00 AM" },
-  { id: "sun-11", labelKey: "ride_service_sun_11", defaultLabel: "Sunday 11:00 AM" },
+  { id: "fri-9", labelKey: "ride_service_fri_9", defaultLabel: "Friday 9:00 AM" },
+  { id: "fri-11", labelKey: "ride_service_fri_11", defaultLabel: "Friday 11:00 AM" },
   { id: "wed-7", labelKey: "ride_service_wed_7", defaultLabel: "Wednesday 7:00 PM" },
 ];
 

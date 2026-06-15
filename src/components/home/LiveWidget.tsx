@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Radio, Eye, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { calculateCountdown, getNextSunday } from "@/lib/utils";
+import { calculateCountdown, getNextFriday } from "@/lib/utils";
 import type { LiveStreamStatus } from "@/types";
 
 interface LiveWidgetProps {
@@ -41,7 +41,7 @@ export function LiveWidget({ initialStatus }: LiveWidgetProps) {
   // Countdown timer
   const updateCountdown = useCallback(() => {
     if (!status.isLive) {
-      setCountdown(calculateCountdown(getNextSunday()));
+      setCountdown(calculateCountdown(getNextFriday()));
     }
   }, [status.isLive]);
 
@@ -125,7 +125,7 @@ export function LiveWidget({ initialStatus }: LiveWidgetProps) {
           </span>
         </div>
         <h3 className="font-heading text-2xl text-ivory">
-          Sunday is Coming
+          Friday is Coming
         </h3>
       </div>
 
@@ -158,7 +158,7 @@ export function LiveWidget({ initialStatus }: LiveWidgetProps) {
       {/* Schedule */}
       <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 text-center">
         {[
-          { day: "Sunday", times: "9:00 AM & 11:00 AM" },
+          { day: "Friday", times: "9:00 AM & 11:00 AM" },
           { day: "Wednesday", times: "7:00 PM" },
         ].map(({ day, times }) => (
           <div key={day} className="flex flex-col gap-0.5">
