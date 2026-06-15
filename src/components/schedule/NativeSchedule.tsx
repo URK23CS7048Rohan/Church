@@ -20,7 +20,7 @@ interface ScheduleItem {
 
 const WEEKLY_SCHEDULE = [
   {
-    day: "Sunday",
+    day: "Friday",
     items: [
       { time: "9:00 AM", title: "First Service", desc: "Traditional worship, liturgy, choral music.", location: "Agape Worship Hall", category: "service", tag: "Main" },
       { time: "11:00 AM", title: "Second Service", desc: "Contemporary worship service, youth ministry.", location: "Agape Worship Hall", category: "service", tag: "Main" },
@@ -33,17 +33,11 @@ const WEEKLY_SCHEDULE = [
       { time: "7:00 PM", title: "Prayer Meeting", desc: "Intercessory prayer and fasting devotion.", location: "Chapel Hall", category: "prayer", tag: "Prayer" },
       { time: "7:00 PM", title: "Mid-Week Bible Study", desc: "Diving deep into scripture expository study.", location: "Kids Wing", category: "bible-study" }
     ]
-  },
-  {
-    day: "Friday",
-    items: [
-      { time: "7:30 PM", title: "Home Fellowship", desc: "Small groups meeting in nearby residences.", location: "Various Host Homes", category: "bible-study", tag: "Home cell" }
-    ]
   }
 ];
 
 const MONTHLY_SPECIALS = [
-  { date: "1st Sunday", title: "Communion Service", time: "9:00 AM & 11:00 AM", location: "Main Sanctuary", desc: "Special celebration of the Holy Eucharist.", category: "service" },
+  { date: "1st Friday", title: "Communion Service", time: "9:00 AM & 11:00 AM", location: "Main Sanctuary", desc: "Special celebration of the Holy Eucharist.", category: "service" },
   { date: "1st Friday", title: "Night Vigil", time: "10:00 PM - 2:00 AM", location: "Agape Chapel", desc: "All night corporate prayer and intercession.", category: "prayer" },
   { date: "2nd Saturday", title: "Street Outreach", time: "9:00 AM", location: "Outreach Center", desc: "Serving the local homeless with meals and clothes.", category: "outreach" },
 ];

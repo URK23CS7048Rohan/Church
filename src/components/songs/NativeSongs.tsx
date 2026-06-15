@@ -9,7 +9,7 @@ import { useLanguage } from "@/components/providers/LanguageProvider";
 const POPULAR_SONGS = [
   { id: "1", title: "Yeshu Ente Nalla Edayan", subtitle: "Worship Song", duration: "5:34" },
   { id: "2", title: "Ente Daivam Mahatvam", subtitle: "Praise & Worship", duration: "4:12" },
-  { id: "3", title: "Aaradhana Nayakan", subtitle: "Sunday Worship", duration: "6:01" },
+  { id: "3", title: "Aaradhana Nayakan", subtitle: "Friday Worship", duration: "6:01" },
   { id: "4", title: "Kripayude Geethangal", subtitle: "Hymn", duration: "3:45" },
 ];
 

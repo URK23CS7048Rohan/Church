@@ -24,7 +24,7 @@ const MOCK_PHOTOS: MultilingualPhoto[] = [
   { id: "3", image_url: "/church-photos/church-photo-2.jpeg", caption: "Our Sanctuary", heart_count: 72, user: "Sister Sarah", service_date: "2026-06-01" },
   { id: "4", image_url: "/church-photos/church-photo-3.jpeg", caption: "Praise & Worship Team", heart_count: 82, user: "Worship Leader", service_date: "2026-06-01" },
   { id: "5", image_url: "/church-photos/church-photo-4.jpeg", caption: "Weekly Home Fellowships", heart_count: 65, user: "Group Coordinator", service_date: "2026-05-25" },
-  { id: "6", image_url: "/church-photos/church-photo-5.jpeg", caption: "Sunday Service Assembly", heart_count: 99, user: "Pastor David", service_date: "2026-05-25" },
+  { id: "6", image_url: "/church-photos/church-photo-5.jpeg", caption: "Friday Service Assembly", heart_count: 99, user: "Pastor Reni Peter", service_date: "2026-05-25" },
   { id: "7", image_url: "/church-photos/church-photo-6.jpeg", caption: "Gathered Believers in Fellowship", heart_count: 51, user: "Agape Media", service_date: "2026-05-18" },
   { id: "8", image_url: "/church-photos/church-photo-7.jpeg", caption: "Youth Gathering", heart_count: 78, user: "Youth Leader", service_date: "2026-05-18" },
 ];

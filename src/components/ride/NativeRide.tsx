@@ -36,7 +36,7 @@ export function NativeRide() {
             </div>
             <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "24px", fontWeight: 700, marginBottom: "8px" }}>Church Van Service</h2>
             <p style={{ fontFamily: "var(--font-inter)", fontSize: "13px", lineHeight: 1.5, color: "rgba(255,255,255,0.8)" }}>
-              We provide free transportation to and from all Sunday services and Wednesday prayer meetings.
+              We provide free transportation to and from all Friday services and Wednesday prayer meetings.
             </p>
           </div>
 
@@ -68,8 +68,8 @@ export function NativeRide() {
             <input type="text" placeholder="Pickup Address" className="w-full p-4 rounded-xl bg-white border border-black/5 outline-none focus:border-[#1A2E20] transition-colors" />
             <select className="w-full p-4 rounded-xl bg-white border border-black/5 outline-none focus:border-[#1A2E20] transition-colors">
               <option value="">Select Service</option>
-              <option value="sunday_9am">Sunday 9:00 AM</option>
-              <option value="sunday_11am">Sunday 11:00 AM</option>
+              <option value="friday_9am">Friday 9:00 AM</option>
+              <option value="friday_11am">Friday 11:00 AM</option>
               <option value="wednesday">Wednesday 7:00 PM</option>
             </select>
             <button type="button" className="w-full py-4 rounded-xl text-white font-bold tracking-wide mt-2 flex justify-center items-center gap-2 active:scale-[0.98] transition-transform" style={{ background: "linear-gradient(135deg, #C9A84C, #9A7A30)" }}>

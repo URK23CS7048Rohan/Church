@@ -211,7 +211,7 @@ export function NativeProfile() {
               </h3>
               <div className="space-y-2 font-inter text-xs">
                 {[
-                  { title: "Sunday Celebration Service", date: "Jun 21, 2026" },
+                  { title: "Friday Celebration Service", date: "Jun 19, 2026" },
                   { title: "Young Adults Camp Retreat", date: "Jul 14, 2026" }
                 ].map((item, idx) => (
                   <div key={idx} className="py-2 border-b border-white/[0.03] last:border-0">

@@ -90,8 +90,8 @@ function WebSermons() {
             </div>
             <select value={speaker} onChange={(e) => setSpeaker(e.target.value)} className="px-4 py-3 rounded-xl bg-surface-2 border border-white/10 font-body text-ivory focus:outline-none focus:border-sacred/40 transition-colors">
               <option value="all">{t("sermons_filter_all_speakers")}</option>
-              <option value="Pastor David Mitchell">Pastor David Mitchell</option>
-              <option value="Pastor Sarah Mitchell">Pastor Sarah Mitchell</option>
+              <option value="Pastor Reni Peter">Pastor Reni Peter</option>
+              <option value="Pastor Jacoub">Pastor Jacoub</option>
             </select>
             <select value={series} onChange={(e) => setSeries(e.target.value)} className="px-4 py-3 rounded-xl bg-surface-2 border border-white/10 font-body text-ivory focus:outline-none focus:border-sacred/40 transition-colors">
               <option value="all">{t("sermons_filter_all_series")}</option>

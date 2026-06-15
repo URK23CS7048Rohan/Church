@@ -155,7 +155,7 @@ export function NativeLive() {
                       <Tv size={48} className="text-white/10 animate-bounce" />
                       <div className="space-y-1">
                         <h3 className="text-base font-bold text-white font-poppins">Next Live Stream</h3>
-                        <p className="text-xs text-fog/60">Sunday at 9:00 AM & 11:00 AM</p>
+                        <p className="text-xs text-fog/60">Friday at 9:00 AM & 11:00 AM</p>
                       </div>
                       
                       <div className="pt-2">
@@ -174,7 +174,7 @@ export function NativeLive() {
                 <div className="space-y-3">
                   <div className="flex justify-between items-start gap-4">
                     <div>
-                      <h2 className="text-lg font-bold font-playfair text-white">Sunday Celebration Worship</h2>
+                      <h2 className="text-lg font-bold font-playfair text-white">Friday Celebration Worship</h2>
                       <p className="text-xs text-fog/60 leading-snug mt-1">Join us for prayer, worship, and an impactful message from scripture.</p>
                     </div>
                   </div>
@@ -259,7 +259,7 @@ export function NativeLive() {
                 <div className="rounded-3xl p-5 border border-white/5 bg-white/[0.01] space-y-3.5 font-inter text-xs">
                   <div>
                     <span className="font-semibold text-white">Broadcast Schedule</span>
-                    <p className="text-fog/60 mt-1 leading-snug">Sundays: 9:00 AM & 11:00 AM EST<br />Wednesdays (Prayer): 7:00 PM EST</p>
+                    <p className="text-fog/60 mt-1 leading-snug">Fridays: 9:00 AM & 11:00 AM EST<br />Wednesdays (Prayer): 7:00 PM EST</p>
                   </div>
                   <div>
                     <span className="font-semibold text-white">Need Prayer?</span>

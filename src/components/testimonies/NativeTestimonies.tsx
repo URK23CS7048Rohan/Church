@@ -19,7 +19,7 @@ interface Testimony {
 }
 
 const MOCK_TESTIMONIES: Testimony[] = [
-  { id: "1", author_name: "Sarah Jenkins", title: "Healed from Chronic Pain", content: "After years of struggling with severe back pain, the prayer team prayed over me at a Sunday service. Two days later, all pain vanished! The doctors are baffled, but I know it's a miracle.", created_at: "2026-06-01", hearts: 34 },
+  { id: "1", author_name: "Sarah Jenkins", title: "Healed from Chronic Pain", content: "After years of struggling with severe back pain, the prayer team prayed over me at a Friday service. Two days later, all pain vanished! The doctors are baffled, but I know it's a miracle.", created_at: "2026-06-01", hearts: 34 },
   { id: "2", author_name: "Daniel Miller", title: "Restored Marriage", content: "My wife and I were on the verge of divorce. We joined an Agape Small Group and the support, prayer, and biblical guidance we received helped us forgive each other. Our marriage is stronger than ever.", created_at: "2026-06-05", hearts: 48 },
   { id: "3", author_name: "Grace Mitchell", title: "Provision in Hard Times", content: "I was laid off from my job and didn't know how I'd pay rent. The church rallied around me in prayer, and within a week, I received a job offer with better pay and hours. God is indeed faithful!", created_at: "2026-06-10", hearts: 29 },
 ];
