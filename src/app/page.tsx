@@ -18,6 +18,7 @@ import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { useNativePlatform } from "@/hooks/useNativePlatform";
 import { NativeHome } from "@/components/home/NativeHome";
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import { YouTubeSection } from "@/components/home/YouTubeSection";
 
 export default function HomePage() {
   const isNative = useNativePlatform();
@@ -84,6 +85,9 @@ function WebHome() {
 
         {/* Latest Sermons */}
         <SermonPreview />
+
+        {/* YouTube Channel Section */}
+        <YouTubeSection />
 
         {/* Events Teaser */}
         <EventsTeaser />
